@@ -35,7 +35,6 @@ Ext.define('tiendarepuestos.Application', {
         'almacen.InventarioInicial',
         'almacen.InventarioInicialEditar',
         'almacen.ActualizarDisponibilidad',
-
         'ventas.ContenedorCotizaciones',
         'ventas.ContenedorCliente',
         'ventas.ListadoDeCotizaciones',
@@ -43,7 +42,6 @@ Ext.define('tiendarepuestos.Application', {
         'ventas.RegistrarProducto',
         'ventas.BuscarProducto',
         'ventas.ListadoClientes',
-        //'ventas.ListadoProductos',
         'ventas.Mantenimiento',
         'ventas.VisorClienteCotizacion',
         'ventas.VisorProductoCotizacion',
@@ -62,12 +60,10 @@ Ext.define('tiendarepuestos.Application', {
         'ventas.VisualizarCotizacionFacturar',
         'ventas.RegistrarFacturaBoleta',
         'ventas.BuscarProductoFB',
-
         'puntoventa.ContenedorMain',
         'puntoventa.ListadoPdv',
         'puntoventa.PagosAcuentaPdv',
         'puntoventa.AperturaCaja',
-
         'mrp.ContenedorFormulas',
         'mrp.ListadoFormulas',
         'mrp.FormListaMaterial',

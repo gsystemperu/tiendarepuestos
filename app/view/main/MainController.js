@@ -141,40 +141,29 @@ Ext.define('tiendarepuestos.view.main.MainController', {
 
   },
   onClickOpcionMenu: function (obj, record, item, index, e, eOpts) {
-
     _view = record.get("itemId");
-    _tit = record.get("titulo");
+    _tit  = record.get("titulo");
     _panel = this.lookupReference('tabPrincipal');  //this.getView().down('tabpanel');
     try {
-      _panel.removeAll();
-      if(_tit == ''){return 0;}
-      if (!_panel.getChildByElement(_view)) {
-        _panel.add({
-          title: _tit,
-          closable: false,
-          id: _view,
-          layout: 'fit',
-          items: [{
-            xtype: _view
-          }]
-        });
+      if(_tit.length > 0){
+        _panel.removeAll();
+        if (!_panel.getChildByElement(_view)) {
+          _panel.add({
+            title: _tit,
+            closable: false,
+            id: _view,
+            layout: 'fit',
+            items: [{
+              xtype: _view
+            }]
+          });
+        }
       }
     } catch (err) {
 
       console.info(err);
     }
-  },
-  onBeforecollapse:function(p, direction, animate, eOpts ) {
-  /*  try {
-      if(p.getTitleRotation()){
-        p.setTitleRotation(0);
-      }else{
-        p.setTitleRotation(1);
-      }
-    } catch (e) {
-        console.log(e);
-    }*/
-
   }
+ 
 
 });
