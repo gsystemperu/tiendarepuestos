@@ -167,6 +167,7 @@ Ext.define('tiendarepuestos.view.main.Main', {
       region: 'center',
       padding: 5,
       reference: 'tabPrincipal',
+      itemId: 'tabPrincipal',
       defaults: {bodyPadding: 0},
       scrollable: true,
       layout:'fit',

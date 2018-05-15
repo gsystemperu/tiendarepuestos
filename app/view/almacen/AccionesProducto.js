@@ -191,9 +191,10 @@ Ext.define('tiendarepuestos.view.almacen.AccionesProducto', {
     getMostrarMenuMantenimiento:function(){
       _view = 'wRegMaestros';
       _tit = 'Registro de Maestros';
-      _panel = this.getView().up('tabpanel');
+      _panel = Ext.ComponentQuery.query('#tabPrincipal')[0]; //this.lookupReference('tabPrincipal');
       try {
-        if(_tit == ''){return 0;}
+        if(_tit.length > 0){
+        _panel.removeAll();
         if (!_panel.getChildByElement(_view)) {
           _panel.add({
             title: _tit,
@@ -204,8 +205,8 @@ Ext.define('tiendarepuestos.view.almacen.AccionesProducto', {
               xtype: _view
             }]
           });
-
         }
+       }
         _panel.setActiveTab(_view);
       } catch (err) {
         console.info(err);

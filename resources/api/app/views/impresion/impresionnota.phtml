@@ -55,7 +55,7 @@ body{
 //      echo $row->idmoneda;die();
 
         switch( $row->idmoneda){
-                case 1 : $moneda='S/.  ';break;
+                case 1 : $moneda='S/  ';break;
                 case 2 : $moneda='$  ';break;
                 case 3 : $moneda='€  ';break;
         }
@@ -145,9 +145,9 @@ body{
          <td style="width:30px;">                  </td>
          <td colspan="5" style="padding:0px;">
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php 
-              $t1 = $total + ($total *0.18);
-              echo strtoupper( pinta(convertir_a_letras($t1)));  
-          ?>
+		 $t1 = $total + ($total *0.18);
+                  echo strtoupper( pinta(convertir_a_letras($t1)));
+	   ?>
          </td>
       </tr>
      <!-- <tr style="height:33px;">
@@ -166,16 +166,25 @@ body{
 
        <tr style="height:33px;">
          <td style="width:400;"></td>
-         <td colspan="5" style="text-align:right;"><?php echo $moneda . number_format($total , 2, '.',' '); ?> &nbsp;&nbsp; </td>
+         <td colspan="5" style="text-align:right;"><?php echo $moneda . number_format($total , 2, '.',' '); ?> &nbsp; </td>
       </tr>
       <tr style="height:33px;">
          <td style="width:20px;"></td>
-         <td colspan="4" style="width:20px;text-align:right;">18%&nbsp;&nbsp;&nbsp;&nbsp; </td>
-         <td colspan="1" style="text-align:right;"><?php echo $moneda . number_format($total * 0.18, 2, '.',' ');  ?>&nbsp;&nbsp;&nbsp; </td>
+         <td colspan="3" style="width:20px;text-align:right;"><!--18%&nbsp;&nbsp;&nbsp;&nbsp; --></td>
+         <td colspan="2" style="text-align:right;">
+              <table style="width:100%" border="0">
+		<tr>
+		   <td>18%</td>
+		   <td><?php echo $moneda . number_format($total * 0.18, 2, '.',' ');  ?>&nbsp;&nbsp;</td>
+
+		</tr>
+	      </table>
+              
+          </td>
       </tr>
       <tr style="height:33px;">
          <td  style="width:400;"></td>
-         <td colspan="5"  style="text-align:right;"><?php echo $moneda . number_format($total + ($total * 0.18), 2, '.',' ');  ?>&nbsp;&nbsp;&nbsp;  </td>
+         <td colspan="5"  style="text-align:right;"><?php echo $moneda . number_format($total + ($total * 0.18), 2, '.',' ');  ?>&nbsp;&nbsp;  </td>
       </tr>
      
 
