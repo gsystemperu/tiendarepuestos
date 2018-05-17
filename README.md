@@ -1,2 +1,3 @@
 # tiendarepuestos
-Proyecto para la administracion de una granja y productos derivados para esta.
+Akinet 
+Modulos : Ventas,Compras,Almacen, Facturación
