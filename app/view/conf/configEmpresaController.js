@@ -42,22 +42,54 @@ Ext.define('tiendarepuestos.view.conf.configEmpresaController', {
       ca = d.getCount();
       rs = [];
       w = 0
-      for (var i = 0; i < ca; i++) {
+      for (i = 0; i < ca; i++) {
         r = d.getAt(i);
         //if(r.modified){ w= 1 ;}
         da = {
-          id: ( Ext.isNumeric(r.get('id')) == true ? r.get('id') : 0),
-          idempresa: 1,
-          direccion: r.get('direccion'),
-          telefono: r.get('telefono'),
-          celular: r.get('celular'),
-          seriefactura: (r.get('seriefactura') == '' ? '0-0' : r.get('seriefactura')),
-          serieboleta: (r.get('serieboleta') == '' ? '0-0' : r.get('serieboleta')),
-          serieguiaremision: (r.get('serieguiaremision') == '' ? '0-0' : r.get('serieguiaremision'))
+          xid: ( Ext.isNumeric(r.get('id')) == true ? r.get('id') : 0),
+          xdireccion:r.get('direccion'),
+          xtelefono:r.get('telefono'),
+          celular: r.get('celular')
         };
+
         rs.push(da);
       }
-      this.lookupReference('jsondetalle').setValue(JSON.stringify(rs));
+      this.lookupReference('tiendas').setValue(JSON.stringify(rs));
+
+      di  = this.lookupReference('dgvDocInternos').getStore();
+      cdi = di.getCount();
+      rs  = [];
+      for(i = 0; i< cdi; i++)
+      {
+        r = di.getAt(i);
+        da = {
+          "xid": ( Ext.isNumeric(r.get('id')) == true ? r.get('id') : 0),
+          "xdoc": r.get('documento'),
+          "xserie": r.get('serie'),
+          "xnumero": r.get('numero')
+        }
+        rs.push(da);
+      }
+      this.lookupReference('documentos').setValue(JSON.stringify(rs));
+
+      dt  = this.lookupReference('dgvTicketera').getStore();
+      cdi = dt.getCount();
+      rs  = [];
+      for(i = 0; i< cdi; i++)
+      {
+        r = dt.getAt(i);
+        da = {
+          "xid": ( Ext.isNumeric(r.get('id')) == true ? r.get('id') : 0),
+          "xdescripcion": r.get('descripcion'),
+          "xcodigo": r.get('codigo'),
+          "xserie": r.get('serie'),
+          "xautorizacionsunat": r.get('autorizacionsunat'),
+          "xnumero": r.get('numero')
+        }
+        rs.push(da);
+      }
+      this.lookupReference('ticketeras').setValue(JSON.stringify(rs));
+      
       me = this;
       if (f.isValid()) {
         f.submit({
@@ -66,6 +98,8 @@ Ext.define('tiendarepuestos.view.conf.configEmpresaController', {
              if(action.result.error!=0){
                         try {
                             d.reload();
+                            dt.reload();
+                            di.reload();
                       } catch (e) {console.log(e);return false;}
               }
           },

@@ -613,7 +613,7 @@ class ImpresionController extends Controller
       
             $pdf->AddPage();
             $pdf->SetFont($font,'',$tam);
-            $pdf->Image('../../images/logo.png', 10, 3, 60); //130, 3, 60);
+           // $pdf->Image('../../images/logo.png', 10, 3, 60); //130, 3, 60);
             $pdf->setX(100);
             $pdf->MultiCell($wg,$in, pinta($dataEmpresa->razonsocial),'T','L');
             $pdf->setX(100);
@@ -624,12 +624,10 @@ class ImpresionController extends Controller
             $pdf->MultiCell($wg,$in,pinta("TELÉFONO: ".$dataEmpresa->telefono),'B','L');
           
             $tam = 9;
-       
             $pdf->Ln(7);
       
             $pdf->SetFont($font,'B',20);
             $pdf->MultiCell(186,$in,pinta("COTIZACIÓN: ".$dataCotizacion->ctcodigo),0,'C');
-      
             $pdf->Ln(5);
       
             $fila = $pdf->GetY();
@@ -658,9 +656,9 @@ class ImpresionController extends Controller
               $pdf->Cell(110,5,pinta('Descripción'),1,0,'C');
               $pdf->Cell(10,5,pinta('Cant.'),1,0,'C');
               $pdf->Cell(15,5,pinta('Unidad'),1,0,'C');
-              $pdf->Cell(16,5,pinta('P. sin igv'),1,0,'C');
+              //$pdf->Cell(16,5,pinta('P. sin igv'),1,0,'C');
               $pdf->Cell(16,5,pinta('P. con igv'),1,0,'C');
-              $pdf->Cell(16,5,pinta('Total'),1,1,'C');
+              $pdf->Cell(32,5,pinta('Total'),1,1,'C');
                 $item = 1;
                  foreach($dataDetalle as $row){
                   $pdf->SetFont($font,'',7);
@@ -669,9 +667,9 @@ class ImpresionController extends Controller
                   
                   $pdf->Cell(10,5,pinta($row->cantidad),1,0,'C');
                   $pdf->Cell(15,5,pinta($row->um),1,0,'C');
-                  $pdf->Cell(16,5,pinta(number_format($row->precio / 1.18 , 2, '.',' ')),1,0,'R');
+                  //$pdf->Cell(16,5,pinta(number_format($row->precio / 1.18 , 2, '.',' ')),1,0,'R');
                   $pdf->Cell(16,5,pinta(number_format($row->precio, 2, '.',' ')),1,0,'R');
-                  $pdf->Cell(16,5,pinta(number_format($row->total , 2, '.',' ')),1,1,'R');
+                  $pdf->Cell(32,5,pinta(number_format($row->total , 2, '.',' ')),1,1,'R');
                   $total_sin_imp += $row->total;
                  }
   
@@ -704,11 +702,11 @@ class ImpresionController extends Controller
           
           $pdf->Cell(35,6,pinta('CREDITOS Y COBRANZAS : '),0,1,'L');
           $pdf->MultiCell(0,4,pinta($dataCotizacion->creditoscobranzas),0,'J');
-          $pdf->Ln();    
+          /*$pdf->Ln();    
           $pdf->Cell(80,6,pinta('CUENTA CORRIENTE BCP  :'),0,0,'L');
           $pdf->Cell(0,6,pinta('S/: 191-2451784-0-93'),0,1,'L');
           $pdf->Cell(80,6,pinta('CUENTA CORRIENTE BCP  :'),0,0,'L');
-          $pdf->Cell(0,6,pinta('$:  191-2471001-1-15'),0,1,'L');
+          $pdf->Cell(0,6,pinta('$:  191-2471001-1-15'),0,1,'L');*/
         
           $pdf->AutoPrint();
           $pdf->Output();

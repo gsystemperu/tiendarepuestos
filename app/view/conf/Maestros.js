@@ -30,7 +30,7 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
         me.callParent();
     },
     getPanelEstados: function (storeEstado) {
-        var obj = {
+        obj = {
             xtype: 'panel',
             hidden: false,
             title: 'Estado Generales',
@@ -102,7 +102,7 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
         return obj;
     },
     getPanelEstadosInventario: function (storeEstado) {
-        var obj = {
+        obj = {
             xtype: 'panel',
             hidden: false,
             title: 'Estados Inventario',
@@ -174,7 +174,7 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
         return obj;
     },
     getPanelEstadosCompras: function (storeEstado) {
-        var obj = {
+        obj = {
             xtype: 'panel',
             hidden: false,
             title: 'Estados Compras',
@@ -246,7 +246,7 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
         return obj;
     },
     getPanelEstadosVentas: function (storeEstado) {
-        var obj = {
+        obj = {
             xtype: 'panel',
             hidden: false,
             title: 'Estados Ventas',
@@ -318,7 +318,7 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
         return obj;
     },
     getPanelBancos: function (storeBanco) {
-        var obj = {
+        obj = {
             xtype: 'panel',
             hidden: false,
             title: 'Bancos',
@@ -402,7 +402,7 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
         return obj;
     },
     getPanelCategorias:function(storeCategoria){
-             var obj = {
+             obj = {
             xtype: 'panel',
             hidden: false,
             title: 'Categoria',
@@ -487,7 +487,7 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
         return obj;
     },
     getPanelColores:function(storeColores){
-             var obj = {
+             obj = {
             xtype: 'panel',
             hidden: false,
             title: 'Colores',
@@ -571,7 +571,7 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
         return obj;
     },
      getPanelMedidas:function(storeMedidas){
-             var obj = {
+             obj = {
             xtype: 'panel',
             hidden: false,
             title: 'Medidas',
@@ -655,7 +655,7 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
         return obj;
     },
      getPanelUnidadMedida:function(storeUnidadMedidas){
-             var obj = {
+             obj = {
             xtype: 'panel',
             hidden: false,
             title: 'Unidad Medida',
@@ -738,7 +738,7 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
         return obj;
     },
     getPanelTipoDeProducto:function(storeTipoProductos){
-             var obj = {
+             obj = {
             xtype: 'panel',
             hidden: false,
             title: 'Categoría',
@@ -822,7 +822,7 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
         return obj;
     },
     getPanelTarifas:function(storeTarifas){
-             var obj = {
+             obj = {
             xtype: 'panel',
             hidden: false,
             title: 'Tarifas',
@@ -906,7 +906,7 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
         return obj;
     },
     getPanelPresentacionProducto:function(storePresentacion){
-             var obj = {
+             obj = {
             xtype: 'panel',
             hidden: false,
             title: 'Presentación',
@@ -990,7 +990,7 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
         return obj;
     },
     getPanelTipoDocumentoPersona:function(storeTipoDocumentoPersona){
-             var obj = {
+             obj = {
             xtype: 'panel',
             hidden: false,
             title: 'Tipo Documento',
@@ -1074,7 +1074,7 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
         return obj;
     },
     getPanelFormaPago:function(storeFormaPago){
-             var obj = {
+             obj = {
             xtype: 'panel',
             hidden: false,
             title: 'Forma Pago',
@@ -1158,7 +1158,7 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
         return obj;
     },
     getPanelModoDeEntrega:function(storeModoEntrega){
-             var obj = {
+             obj = {
             xtype: 'panel',
             hidden: false,
             title: 'Modo Entrega',
@@ -1244,7 +1244,7 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
 
     getPanelMarca:function(storeMarca)
     {
-        var obj = {
+        obj = {
        xtype: 'panel',
        hidden: false,
        title: 'Marcas',
@@ -1329,7 +1329,7 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
     },
     getPanelModelo:function(storeModelo)
     {
-        var obj = {
+        obj = {
        xtype: 'panel',
        hidden: false,
        title: 'Modelos',
@@ -1414,24 +1414,24 @@ Ext.define('tiendarepuestos.view.conf.Maestros', {
     },
     
     getItems: function () {
-        var storeEstado = Ext.create('tiendarepuestos.store.Estados');
-        //var storeBancos = Ext.create('tiendarepuestos.store.Bancos');
-        var storeCategoria = Ext.create('tiendarepuestos.store.Categoria');
-        //var storeColores = Ext.create('tiendarepuestos.store.Colores');
-        //var storeMedidas = Ext.create('tiendarepuestos.store.Medidas');
-        var storeTipoProductos = Ext.create('tiendarepuestos.store.TipoDeProductos');
-        var storeUnidadMedidas = Ext.create('tiendarepuestos.store.UnidadDeMedidas');
-        //var storeTarifas = Ext.create('tiendarepuestos.store.Tarifas');
+        storeEstado = Ext.create('tiendarepuestos.store.Estados');
+        //storeBancos = Ext.create('tiendarepuestos.store.Bancos');
+        //storeCategoria = Ext.create('tiendarepuestos.store.Categoria');
+        //storeColores = Ext.create('tiendarepuestos.store.Colores');
+        //storeMedidas = Ext.create('tiendarepuestos.store.Medidas');
+        storeTipoProductos = Ext.create('tiendarepuestos.store.TipoDeProductos');
+        storeUnidadMedidas = Ext.create('tiendarepuestos.store.UnidadDeMedidas');
+        //storeTarifas = Ext.create('tiendarepuestos.store.Tarifas');
 
-        var storePresentacion = Ext.create('tiendarepuestos.store.Presentacion');
-        var storeFormaPago  = Ext.create('tiendarepuestos.store.FormaPago');
-        var storeModoEntrega = Ext.create('tiendarepuestos.store.ModoEntrega');
+        storePresentacion = Ext.create('tiendarepuestos.store.Presentacion');
+        storeFormaPago  = Ext.create('tiendarepuestos.store.FormaPago');
+        storeModoEntrega = Ext.create('tiendarepuestos.store.ModoEntrega');
 
-        var storeModelos = Ext.create('tiendarepuestos.store.Modelos');
-        var storeMarcas  = Ext.create('tiendarepuestos.store.Marcas');
+        storeModelos = Ext.create('tiendarepuestos.store.Modelos');
+        storeMarcas  = Ext.create('tiendarepuestos.store.Marcas');
         
         me = this;
-        var _obj = [{
+        _obj = [{
             xtype: 'tabpanel',
             activeTab: 0,
             tabPosition: 'left',

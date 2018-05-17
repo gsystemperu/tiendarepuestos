@@ -72,8 +72,18 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
         },
         {
           xtype: 'hiddenfield',
-          name: 'jsondetalle',
-          reference: 'jsondetalle'
+          name: 'tiendas',
+          reference: 'tiendas'
+        },
+        {
+          xtype: 'hiddenfield',
+          name: 'documentos',
+          reference: 'documentos'
+        },
+        {
+          xtype: 'hiddenfield',
+          name: 'ticketeras',
+          reference: 'ticketeras'
         },
         {
           xtype: 'textfield',
@@ -91,7 +101,7 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
         },
         {
             xtype: 'textarea',
-            fieldLabel: 'Dirección',
+            fieldLabel: 'Dirección Fiscal',
             name: 'direccion',
             allowBlank: true,
            

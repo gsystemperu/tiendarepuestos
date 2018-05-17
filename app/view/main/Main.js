@@ -24,9 +24,6 @@ Ext.define('tiendarepuestos.view.main.Main', {
         activeOnTop: false,
         fill: false
       },
-      listeners:{
-        beforecollapse:'onBeforecollapse'
-      },
       defaults:{
         titleAlign :'center'
       },

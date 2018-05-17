@@ -13,14 +13,21 @@ class DocumentoVenta extends \Phalcon\Mvc\Model
         return $sql;
     }
 
-   public static function series()
+    public static function series()
     {
         $obj     = new SQLHelpers();
         $param   = array();
         $sql     =  $obj->executarJson('ventas','sp_series_venta_listar',$param);
         return $sql;
     }
-
+    public static function serieEliminar($data)
+    {
+        $obj     = new SQLHelpers();
+        $param   = $data;
+        $sql     =  $obj->executar('public','sp_empresa_actualizar',$param);
+        return $sql;
+    }
+    
     public static function ticketeras()
     {
         $obj     = new SQLHelpers();

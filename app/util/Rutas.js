@@ -103,6 +103,9 @@ Ext.define('tiendarepuestos.util.Rutas', {
         rptImprimirNota:'resources/api/print_nota?',
         rptVisualizarNota:'resources/api/visualizar_nota?',
         rptImprimirGuiaRemision:'resources/api/imprimirguiaremision?',
+
+        //@ Empresa 
+        actualizarEmpresa: 'resources/api/empresa_actualizar'
         
     }
 

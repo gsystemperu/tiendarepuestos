@@ -27,6 +27,21 @@ class EmpresaController extends Controller
              return $response;
         }
    }
+   public function serieseliminarAction()
+   {
+       $request        = new Phalcon\Http\Request();
+       $response       = new \Phalcon\Http\Response();
+       if($request->isPost() ==true)
+       {    
+            $jsonData = DocumentoVenta::series();
+            $response->setContentType('application/json', 'UTF-8');
+            $response->setContent($jsonData);
+            return $response;
+       }
+  }
+
+
+
    public function ticketerasAction(){
         $request        = new Phalcon\Http\Request();
         $response       = new \Phalcon\Http\Response();
@@ -48,6 +63,29 @@ class EmpresaController extends Controller
              $response->setContent($jsonData);
              return $response;
         }
+    }
+    public function actualizarAction(){
+        $request        = new Phalcon\Http\Request();
+        $response       = new \Phalcon\Http\Response();
+        if($request->isPost() ==true)
+        {
+             $data = array(
+                $request->getPost('id'),
+                $request->getPost('razonsocial'),
+                $request->getPost('ruc'),
+                $request->getPost('direccion'),
+                $request->getPost('lema'),
+                $request->getPost('correo'),
+                $request->getPost('telefono'),
+                $request->getPost('tiendas'),
+                $request->getPost('documentos'),
+                $request->getPost('ticketeras')
+             );
+             $jsonData = Empresa::actualizar($data);
+             $response->setContentType('application/json', 'UTF-8');
+             $response->setContent(json_encode($jsonData[0], JSON_NUMERIC_CHECK));
+             return $response;
         }
+    }
 
 }

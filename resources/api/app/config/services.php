@@ -154,6 +154,7 @@ $di->set('router',function() {
     $router->add('/series_listar'     , array('controller'=>'empresa','action'=>'series'));
     $router->add('/ticketeras_listar'     , array('controller'=>'empresa','action'=>'ticketeras'));
     $router->add('/tiendas_listar'     , array('controller'=>'empresa','action'=>'tiendas'));
+    $router->add('/empresa_actualizar'     , array('controller'=>'empresa','action'=>'actualizar'));
     /*
     | @@ Controlador Persona
     */
