@@ -97,7 +97,6 @@ Ext.define('tiendarepuestos.view.almacen.Producto', {
             ],
             tbar: [{
                 xtype: 'fieldset',
-                title: '<b>Buscar Por</b>',
                 layout: 'hbox',
                 flex: 1,
                 padding: '0 5 10 5',
@@ -131,10 +130,10 @@ Ext.define('tiendarepuestos.view.almacen.Producto', {
                     }*/
                   },
                   {
-                    text :'NOMBRE',
+                    text :'Descripcion',
                     padding: '5px 0 0 0',
                     border: false,
-                    width: 110,height: 30,
+                    width: 110,height: 26,
                     style: {
                       background: '#6a4b5a',
                       color: 'white',
@@ -146,7 +145,7 @@ Ext.define('tiendarepuestos.view.almacen.Producto', {
                   {
                     xtype: 'textfield',
                     reference: 'txtBuscarNombreProducto',
-                    fieldStyle : 'font-size:15px;height:30px;background-color:#F9F7D8;',
+                    fieldStyle : 'font-size:15px;height:20px;background-color:#F9F7D8;',
                     flex: 2,
                     enableKeyEvents: true,
                     listeners: {

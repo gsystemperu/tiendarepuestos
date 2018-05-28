@@ -2,7 +2,7 @@ Ext.define('tiendarepuestos.view.conf.configEmpresaController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.acciones-empresa',
     requires: ['tiendarepuestos.util.Rutas'],
-  
+
     //@Acciones
     init:function(){},
     onClickNuevaTienda: function (btn) {
@@ -23,19 +23,37 @@ Ext.define('tiendarepuestos.view.conf.configEmpresaController', {
     onClickEliminarTienda: function (btn) {
       r = btn.getWidgetRecord();
       d = this.lookupReference('dgvTiendas').getStore();
-      d.remove(r);
+      data = {
+        idtienda : r.get('id')
+      };
+      if(Ext.isNumber(r.get('id')))
+          tiendarepuestos.util.Util.ajax(tiendarepuestos.util.Rutas.tiendaEliminar,data,d)
+      else
+          d.remove(r);
+
     },
     onClickEliminarSerie:function(btn){
       r = btn.getWidgetRecord();
       d = this.lookupReference('dgvDocInternos').getStore();
-      d.remove(r);
+      data = {
+        idserie : r.get('id')
+      };
+      if(Ext.isNumber(r.get('id')))
+          tiendarepuestos.util.Util.ajax(tiendarepuestos.util.Rutas.serieEliminar,data,d)
+      else
+          d.remove(r);
     },
     onClickEliminarTicketera:function(btn){
       r = btn.getWidgetRecord();
       d = this.lookupReference('dgvTicketera').getStore();
-      d.remove(r);
+      data = {
+        idticketera : r.get('id')
+      };
+      if(Ext.isNumber(r.get('id')))
+          tiendarepuestos.util.Util.ajax(tiendarepuestos.util.Rutas.ticketeraEliminar,data,d)
+      else
+          d.remove(r);
     },
-
     onClickGuardarEmpresa: function (btn) {
       d = this.lookupReference('dgvTiendas').getStore();
       f = Ext.ComponentQuery.query('#wRegEmpresa')[0];
@@ -89,7 +107,7 @@ Ext.define('tiendarepuestos.view.conf.configEmpresaController', {
         rs.push(da);
       }
       this.lookupReference('ticketeras').setValue(JSON.stringify(rs));
-      
+
       me = this;
       if (f.isValid()) {
         f.submit({
@@ -108,11 +126,26 @@ Ext.define('tiendarepuestos.view.conf.configEmpresaController', {
           }
         });
       }
-  
+
     },
     onClickCancelarEmpresa:function(btn){
-      Ext.ComponentQuery.query('#wRegEmpresa')[1].close();
+       Ext.ComponentQuery.query('#wRegEmpresa')[1].close();
+    },
+    onClickNuevaBoleta:function(b){
+      o=Ext.ComponentQuery.query('#dgvTiendas')[0];
+      r=o.getSelectionModel().getSelection()[0];
+      if(r){
+        tiendarepuestos.util.
+        Util.crearWindowOpenMantenimiento('Asignar Documento Interno',300,450,o.getStore(),'wnuevaboleta',r.get('id'));
+      }
+    },
+    onClickNuevaTicketera:function(b){
+      o=Ext.ComponentQuery.query('#dgvTiendas')[0];
+      r=o.getSelectionModel().getSelection()[0];
+      if(r){
+        tiendarepuestos.util.
+        Util.crearWindowOpenMantenimiento('Asignar Ticketera',300,650,o.getStore(),'wnuevaticketera',r.get('id'));
+      }
     }
-  
+
   });
-  

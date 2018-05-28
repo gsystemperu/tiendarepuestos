@@ -69,7 +69,9 @@ Ext.define('tiendarepuestos.Application', {
         'mrp.FormListaMaterial',
 
         //@Conf views
-        'conf.configEmpresa'
+        'conf.configEmpresa',
+        'conf.configNuevaBoleta',
+        'conf.configNuevaTicketera'
 
     ],
 
@@ -85,7 +87,7 @@ Ext.define('tiendarepuestos.Application', {
        Ext.util.Format.currencyPrecision = 5;
 
        Ext.create('wMain');
-       document.getElementById("splashscreen").style.display = 'none';  
-       
+       document.getElementById("splashscreen").style.display = 'none';
+
     }
 });

@@ -167,11 +167,11 @@ Ext.define('tiendarepuestos.view.ventas.ListadoDeCotizacionesFacturar', {
                 },
                 {
                     xtype: 'numbercolumn',
-                    text: 'Acuenta',
+                    text: 'Pagos',
                     dataIndex: 'pagoacuenta',
                     flex: 0.7,
                     align: 'right',
-                    hidden:true,
+                    hidden:false,
                     renderer: Ext.util.Format.numberRenderer('0.00000'),
                     summaryType: 'sum',
                     summaryRenderer: function(v){
@@ -213,6 +213,7 @@ Ext.define('tiendarepuestos.view.ventas.ListadoDeCotizacionesFacturar', {
                     flex : 0.3,
                     text: 'Sunat',
                     name : 'enviarsunat',
+                    hidden:true
                     /*editor:{
                         xtype:'checkboxfield'
                     }*/
@@ -220,7 +221,8 @@ Ext.define('tiendarepuestos.view.ventas.ListadoDeCotizacionesFacturar', {
                 {
                     flex : 0.5,
                     text: 'Est.Sunat',
-                    name : 'estadosunat'
+                    name : 'estadosunat',
+                    hidden:true
                 },
                 {
                     xtype: 'widgetcolumn',

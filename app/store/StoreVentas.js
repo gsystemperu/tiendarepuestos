@@ -488,3 +488,92 @@ Ext.define('tiendarepuestos.store.MotivosTranslados', {
         }
     }
 });
+
+
+// @ Store : Listado de Documentos de venta asignados a una tienda
+Ext.define('tiendarepuestos.store.TiendaDocumentosVentaAsignados', {
+    extend: 'Ext.data.Store',
+    requiere:['tiendarepuestos.model.DataModelVentas'],
+    model   :'tiendarepuestos.model.TiendaDocumentoVentaAsignado',
+    autoLoad: false,
+    extraParams: {
+        idtienda : 0
+    },
+    proxy: {
+        type: 'ajax',
+        api: {read: 'resources/api/empresa_listar_doc_ventas_asignados'},
+        reader: {
+            type: 'json',
+            rootProperty: 'data',
+        }
+    }
+});
+
+// @ Store : Listado de Documentos de venta para asignar
+Ext.define('tiendarepuestos.store.TiendaDocumentosVenta', {
+    extend: 'Ext.data.Store',
+    requiere:['tiendarepuestos.model.DataModelVentas'],
+    model   :'tiendarepuestos.model.TiendaDocumentoVenta',
+    autoLoad: true,
+    proxy: {
+        type: 'ajax',
+        api: {read: 'resources/api/empresa_listar_doc_ventas'},
+        reader: {
+            type: 'json',
+            rootProperty: 'data',
+        }
+    }
+});
+
+// @ Store : Listado de Ticketeras de venta asignadas a una tienda
+Ext.define('tiendarepuestos.store.TiendaTicketerasAsignadas', {
+    extend: 'Ext.data.Store',
+    requiere:['tiendarepuestos.model.DataModelVentas'],
+    model   :'tiendarepuestos.model.TiendaTicketeraAsignada',
+    autoLoad: false,
+    extraParams: {
+        idtienda : 0
+    },
+    proxy: {
+        type: 'ajax',
+        api: {read: 'resources/api/empresa_listar_ticketeras_asignadas'},
+        reader: {
+            type: 'json',
+            rootProperty: 'data',
+        }
+    }
+});
+
+// @ Store : Listado de Ticketeras de venta para asignar
+Ext.define('tiendarepuestos.store.TiendaTicketeras', {
+    extend: 'Ext.data.Store',
+    requiere:['tiendarepuestos.model.DataModelVentas'],
+    model   :'tiendarepuestos.model.TiendaTicketera',
+    autoLoad: true,
+    proxy: {
+        type: 'ajax',
+        api: {read: 'resources/api/empresa_listar_ticketeras'},
+        reader: {
+            type: 'json',
+            rootProperty: 'data',
+        }
+    }
+});
+
+
+// @ Store : Listado de metodos de pago
+
+Ext.define('tiendarepuestos.store.MetodosPago', {
+    extend: 'Ext.data.Store',
+    requiere:['tiendarepuestos.model.DataModelVentas'],
+    model   :'tiendarepuestos.model.MetodoPago',
+    autoLoad: true,
+    proxy: {
+        type: 'ajax',
+        api: {read: 'resources/api/listar_metodo_pago'},
+        reader: {
+            type: 'json',
+            rootProperty: 'data',
+        }
+    }
+});

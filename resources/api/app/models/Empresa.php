@@ -33,8 +33,52 @@ class Empresa extends \Phalcon\Mvc\Model
         $sql     =  $obj->executar('public','sp_tienda_eliminar',$param);
         return $sql;
     }
+    public static function tiendaListarDocumentosVentaAsignados($data)
+    {
+        $obj     = new SQLHelpers();
+        $param   = $data;
+        $sql     = $obj->executarJson('public','sp_tienda_listar_documentos_asignados',$param);
+        return $sql;
+    }
+    public static function tiendaListarDocumentosVenta()
+    {
+        $obj     = new SQLHelpers();
+        $param   = array();
+        $sql     = $obj->executarJson('ventas','sp_tienda_listar_documento_venta',$param);
+        return $sql;
+    }
 
-    
+    public static function tiendaListarTicketerasAsignadas($data)
+    {
+        $obj     = new SQLHelpers();
+        $param   = $data;
+        $sql     = $obj->executarJson('public','sp_tienda_listar_ticketera_asignadas',$param);
+        return $sql;
+    }
+    public static function tiendaListarTicketeras()
+    {
+        $obj     = new SQLHelpers();
+        $param   = array();
+        $sql     = $obj->executarJson('ventas','sp_tienda_listar_ticketera',$param);
+        return $sql;
+    }
+
+    public static function tiendaAsignarDocumentoVenta($data)
+    {
+        $obj     = new SQLHelpers();
+        $param   = $data;
+        $sql     =  $obj->executar('public','sp_tienda_asignar_documento_venta',$param);
+        return $sql;
+    }
+    public static function tiendaAsignarTicketera($data)
+    {
+        $obj     = new SQLHelpers();
+        $param   = $data;
+        $sql     =  $obj->executar('public','sp_tienda_asignar_ticketeras',$param);
+        return $sql;
+    }
+
+
 
 
 }

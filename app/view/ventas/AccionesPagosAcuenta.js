@@ -32,7 +32,8 @@ Ext.define('tiendarepuestos.view.ventas.AccionesPagosAcuenta', {
             if(record.get('monto')>0){
                __reg = {
                  "fecha": record.get('fecha'),
-                 "monto": record.get('monto')
+                 "monto": record.get('monto'),
+                 "metodopago" : record.get('metodopago')
                };
                __jsondata.push(__reg);
             }
@@ -40,7 +41,7 @@ Ext.define('tiendarepuestos.view.ventas.AccionesPagosAcuenta', {
         Ext.Ajax.request({
             url :tiendarepuestos.util.Rutas.facturacionAgregarPagosAcuenta,
             params:{
-              idfacturacion :  Ext.ComponentQuery.query('#idfactura')[0].getValue() ,
+              idfacturacion :  Ext.ComponentQuery.query('#idfactura')[1].getValue() ,
               vjsondetalle  :  JSON.stringify(__jsondata)
              },
             success:function(response){

@@ -55,12 +55,7 @@ Ext.define('tiendarepuestos.view.puntoventa.AccionesContenedorMain', {
       }
     },
     onClickNuevoClientePDV:function(btn){
-     /* pc = Ext.ComponentQuery.query("#tabPrincipal")[0].getChildByElement('wContenedorCliente');
-     if(pc){
-          Ext.ComponentQuery.query("#tabPrincipal")[0].remove('wContenedorCliente');
-     }*/
-
-      tiendarepuestos.util.Util.crearWindowOpenMantenimiento('Agregar Cliente',650,600,'cboCliente','wFormClienteListado');
+      tiendarepuestos.util.Util.crearWindowOpenMantenimiento('Agregar Cliente',650,600,'cboCliente','wFormClienteListado',0);
     },
     onClickApeturarCaja:function(btn){
       Ext.create('tiendarepuestos.view.puntoventa.AperturaCaja');
@@ -74,7 +69,7 @@ Ext.define('tiendarepuestos.view.puntoventa.AccionesContenedorMain', {
       });
     },
 
-   
+
 
 
 });

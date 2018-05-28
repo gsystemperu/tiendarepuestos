@@ -31,7 +31,8 @@ Ext.define('tiendarepuestos.view.compras.AccionesPagosAcuenta', {
             if(record.get('monto')>0){
                __reg = {
                  "fecha": record.get('fecha'),
-                 "monto": record.get('monto')
+                 "monto": record.get('monto'),
+                 "metodopago" : record.get('metodopago')
                };
                __jsondata.push(__reg);
             }

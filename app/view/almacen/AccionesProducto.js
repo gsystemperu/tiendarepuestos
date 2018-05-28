@@ -263,7 +263,36 @@ Ext.define('tiendarepuestos.view.almacen.AccionesProducto', {
      r = Ext.ComponentQuery.query('#wFormProducto')[0].getRecord(); 
      Ext.createByAlias('widget.wActDisponibilidad');
      Ext.ComponentQuery.query('#frmdispo')[0].loadRecord(r);
+    },
+    onChangeCargarImagenBase64:function(field, path){
+      if (path) {
+        files = Ext.ComponentQuery.query("#fileimg")[0].fileInputEl.dom.files;  
+        file = files[0];
+        reader = new FileReader();
+        reader.readAsArrayBuffer(file);
+        reader.onloadend = function (event) {
+          var binaryString = '',
+            bytes = new Uint8Array(event.target.result),
+            length = bytes.byteLength,
+            i,
+            base64String;
+          // convert to binary string
+          for (i = 0; i < length; i++) {
+            binaryString += String.fromCharCode(bytes[i]);
+          }
+          base64String = btoa(binaryString);
 
+          srcBase64 = "data:image/jpeg;base64," + base64String;
+          Ext.ComponentQuery.query('#imgprod')[0].setSrc(
+            srcBase64
+          );
+        }
+      }
+    },
+    onClickRemoverImagen:function(b){
+      Ext.ComponentQuery.query('#imgprod')[0].setSrc(
+        'resources/images/imagen.png'
+      );
     }
 
 

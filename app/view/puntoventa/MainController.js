@@ -25,7 +25,7 @@ Ext.define('tiendarepuestos.view.puntoventa.MainController', {
       e.record.set('precioanterior', pe.toFixed(2));
       e.record.set('dosis', 0);
       this.onCalcularTotalVenta();
-    } else { //fraccion
+    }else { //fraccion
       pa = e.record.get('preciodosis');
       to = pa * e.record.get('dosis');
       if (e.record.get('precioanterior') == 0) {

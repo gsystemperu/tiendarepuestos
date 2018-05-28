@@ -158,6 +158,7 @@ Ext.define('tiendarepuestos.view.ventas.AccionesRegCotizacionesFacturar', {
     },
     onClickIngresarPagoAcuenta:function(btn){
       __rec = btn.getWidgetRecord();
+      console.log(__rec);
       Ext.widget('wPagosAcuenta', {
         codigo :__rec.get("idfacturacion"),
         nombre :__rec.get("nomcompleto") ,

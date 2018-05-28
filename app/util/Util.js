@@ -58,7 +58,7 @@ Ext.define('tiendarepuestos.util.Util', {
                 minWidth: 400
             });
         },
-        crearWindowOpenMantenimiento:function(__titulo,__ancho,__largo,__objeto_actualizar,__formulario){
+        crearWindowOpenMantenimiento:function(__titulo,__ancho,__largo,__objeto_actualizar,__formulario,__tienda){
            __ventana = Ext.create('Ext.window.Window',{
               title : __titulo,
               width : __largo,
@@ -66,6 +66,8 @@ Ext.define('tiendarepuestos.util.Util', {
               autoShow:true,
               modal : true,
               objeto :__objeto_actualizar,
+              tienda :__tienda,
+              layout:'fit',
               items:[
                 {xtype:__formulario}
               ]
@@ -74,6 +76,39 @@ Ext.define('tiendarepuestos.util.Util', {
         },
         timerRefreshDataGrid:function(ng,tm){
 
+        },
+        ajax:function(url,data,grid){
+            Ext.Ajax.request({
+                url: url,
+                params: data,
+                success: function(response){
+                     e = Ext.JSON.decode(response.responseText);
+                    if(e.error!=0){
+                           grid.reload();
+                    }
+                }
+            });
+
+        },
+        hexToBase64:function (file) {
+            
+                      reader = new FileReader();
+                      reader.readAsArrayBuffer(file);
+                      reader.onloadend = function (event) {
+                        var binaryString = '',
+                          bytes = new Uint8Array(event.target.result),
+                          length = bytes.byteLength,
+                          i,
+                          base64String ;
+                          
+                        for (i = 0; i < length; i++) {
+                          binaryString += String.fromCharCode(bytes[i]);
+                        }
+                        base64String = btoa(binaryString);
+                        return "data:image/jpeg;base64," + base64String ;
+                    }
+                       
+
         }
-    }
+     }
 });

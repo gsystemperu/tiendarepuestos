@@ -1,7 +1,7 @@
 Ext.define('tiendarepuestos.util.Rutas', {
     statics: {
         required: '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>',
-        
+
         //@ Acciones => Formularios
         estadoGuardar: 'resources/api/estado_actualizar',
         bancoGuardar: 'resources/api/banco_actualizar',
@@ -56,7 +56,7 @@ Ext.define('tiendarepuestos.util.Rutas', {
         proveedorGuardar: 'resources/api/proveedor_actualizar',
         proveedorEliminar: 'resources/api/proveedor_eliminar',
 
-        //@ Acciones => cotizaciones  
+        //@ Acciones => cotizaciones
         cotizacionGuardar:'resources/api/agregar_cotizacion',
         cotizacionEliminar:'resources/api/eliminar_cotizacion',
         clienteGuardar:'resources/api/agregar_cliente',
@@ -66,7 +66,7 @@ Ext.define('tiendarepuestos.util.Rutas', {
         imprimirProforma: 'resources/api/imprimirproforma?',
         imprimirTicket: 'resources/api/imprimirticket?',
 
-        //@ Acciones => Facturacion  
+        //@ Acciones => Facturacion
         facturacionGuardar:'resources/api/agregar_facturacion',
         facturacionAgregarPagosAcuenta:'resources/api/agregar_pago_acuenta',
         facturacionBuscarPagosAcuenta:'resources/api/buscar_pago_acuenta',
@@ -77,7 +77,7 @@ Ext.define('tiendarepuestos.util.Rutas', {
         productoEliminar:'resources/api/eliminar_producto',
         clienteBuscarCodigo:'resources/api/buscar_cliente_codigo',
         clienteEliminar:'resources/api/eliminar_cliente',
-        
+
         //@ Rutas Mantenimiento
         formaPagoGuardar:'resources/api/agregar_forma_pago',
         modoEntregaGuardar:'resources/api/agregar_modo_entrega',
@@ -104,9 +104,16 @@ Ext.define('tiendarepuestos.util.Rutas', {
         rptVisualizarNota:'resources/api/visualizar_nota?',
         rptImprimirGuiaRemision:'resources/api/imprimirguiaremision?',
 
-        //@ Empresa 
-        actualizarEmpresa: 'resources/api/empresa_actualizar'
-        
+        //@ Empresa
+        actualizarEmpresa: 'resources/api/empresa_actualizar',
+        serieEliminar:'resources/api/serie_eliminar',
+        ticketeraEliminar:'resources/api/ticketera_eliminar',
+        tiendaEliminar:'resources/api/tienda_eliminar',
+        tiendaAsignarDocumentoVenta:'resources/api/empresa_asignar_documento_venta',
+        tiendaAsignarTicketera:'resources/api/empresa_asignar_ticketera',
+
+
+
     }
 
 });

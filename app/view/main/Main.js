@@ -13,8 +13,7 @@ Ext.define('tiendarepuestos.view.main.Main', {
       collapsible: true,
       titleCollapse :false,
       collapsed:false,
-      title: 'Repuestos Angelica ',
-      iconCls: 'fa fa-wrench fa-2x' ,
+      title: '-- Repuestos Angelica --',
       titleAlign : 'center',
       width: 230,
       layout: {
@@ -180,6 +179,8 @@ Ext.define('tiendarepuestos.view.main.Main', {
               src    : 'resources/images/lgsis.png',
               width  : 300,
               height : 80,
+              hidden : true
+            
             },
             {
               xtype  :'label',

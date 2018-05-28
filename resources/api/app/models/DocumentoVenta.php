@@ -24,15 +24,21 @@ class DocumentoVenta extends \Phalcon\Mvc\Model
     {
         $obj     = new SQLHelpers();
         $param   = $data;
-        $sql     =  $obj->executar('public','sp_empresa_actualizar',$param);
+        $sql     =  $obj->executar('ventas','sp_serie_venta_eliminar',$param);
         return $sql;
     }
-    
     public static function ticketeras()
     {
         $obj     = new SQLHelpers();
         $param   = array();
         $sql     =  $obj->executarJson('ventas','sp_ticketera_venta_listar',$param);
+        return $sql;
+    }
+    public static function ticketeraEliminar($data)
+    {
+        $obj     = new SQLHelpers();
+        $param   = $data;
+        $sql     =  $obj->executar('ventas','sp_ticketera_eliminar',$param);
         return $sql;
     }
 

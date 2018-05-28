@@ -24,28 +24,35 @@ Ext.define('tiendarepuestos.view.ventas.PagosAcuenta', {
       pack: 'start',
       align: 'stretch'
     },
-    width : 300,
+    width : 800,
     height : 500,
     autoShow:true,
     modal : true,
     initComponent: function()
     {
         me = this;
-        __store = Ext.create('tiendarepuestos.store.PagosAcuenta');
+        s = Ext.create('tiendarepuestos.store.PagosAcuenta');
+        m = Ext.create('tiendarepuestos.store.MetodosPago');
         me.title = me.getNombre();
+       
         Ext.apply(me,
         {
-          items :me.getGrillaPagos(__store,me.getCodigo()),
+          items :me.getGrillaPagos(s,me.getCodigo(),m),
           bbar: [
               {
                 xtype:'label',
-                text : 'Ingresado :'
+                text : 'Ingresado :',
+                style: {
+                    fontWeight: 'bold',
+                    fontSize: '15px;'
+                }
               },
               {
                 xtype:'label',
                 itemId :'lblTotalIngresado',
                 style: {
-                    fontWeight: 'bold'
+                    fontWeight: 'bold',
+                    fontSize: '18px;'
                 }
               },
               '->',
@@ -96,19 +103,22 @@ Ext.define('tiendarepuestos.view.ventas.PagosAcuenta', {
       ];
     },
     getCargarDataGrilla:function(__store){
-       __grilla    =  Ext.ComponentQuery.query('#dgvPagoAcuenta')[0].getStore();
-       __suma      = 0;
-       Ext.each(__store,function(row,i){
-          __dato = {
-              "fecha" : row.fecha,  //Ext.Date.format(row.fecha, 'Y-m-d') ,
-              "monto" : row.monto
-          };
-          __grilla.insert(0,__dato);
-          __suma   = __suma + row.monto;
-       });
-       Ext.ComponentQuery.query('#lblTotalIngresado')[0].setText(__suma.toString());
+        g = Ext.ComponentQuery.query('#dgvPagoAcuenta')[0];
+        gr = g.getStore();
+        s = 0;
+        Ext.each(__store, function (row, i) {
+           da = {
+                "fecha": row.fecha,  //Ext.Date.format(row.fecha, 'Y-m-d') ,
+                "monto": row.monto,
+                "metodopago": row.metodopago
+            };
+            gr.insert(0, da);
+            s = s + row.monto;
+        });
+        Ext.ComponentQuery.query('#lblTotalIngresado')[0].setText(s.toString());
     },
-    getGrillaPagos:function(__store,__idfactura){
+    getGrillaPagos:function(__store,__idfactura,mp){
+        
         return __obj = [
            {
              xtype  :'hiddenfield',
@@ -138,6 +148,20 @@ Ext.define('tiendarepuestos.view.ventas.PagosAcuenta', {
                   format :'d/m/Y'
                 }
               },
+              {
+                flex:2,
+                align:'center',
+                text:'Metido de pago',
+                dataIndex:'metodopago',
+                editor:{
+                 xtype:'combo',
+                 store : mp,
+                 valueField : 'descripcion',
+                 displayField :'descripcion',
+                 editable :false,
+                 queryMode :'local'
+                }
+             },
                { xtype:'numbercolumn',flex:1, align :'right', text:'Monto',dataIndex:'monto',
                    editor:{
                     xtype:'numberfield',
@@ -170,3 +194,4 @@ Ext.define('tiendarepuestos.view.ventas.PagosAcuenta', {
     }
 
 });
+

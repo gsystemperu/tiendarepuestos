@@ -80,7 +80,14 @@ class Facturacion extends \Phalcon\Mvc\Model
         $param   = $data;
         $sql     =  $obj->executarJson('contabilidad','sp_monedas_lista',$param);
         return $sql;
-    } 
+    }
+    public static function listarMetodosPago()
+    {
+        $obj     = new SQLHelpers();
+        $param   = array();
+        $sql     =  $obj->executarJson('ventas','sp_metodo_pago_listar',$param);
+        return $sql;
+    }  
      
 
 

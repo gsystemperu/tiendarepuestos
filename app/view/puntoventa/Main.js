@@ -38,7 +38,7 @@ Ext.define('tiendarepuestos.view.puntoventa.Main',{
       var _obj = [
         {
               xtype: 'panel',
-              flex: 1.5,
+              flex: 1.3,
               region: 'west',
               layout: {
                   type: 'vbox',
@@ -133,8 +133,7 @@ Ext.define('tiendarepuestos.view.puntoventa.Main',{
                                   dataIndex: 'precio',
                                   text: 'Precio',
                                   flex: 1,
-                                  align: 'right',
-
+                                  align: 'right'
                               },
                               {
                                   xtype: 'numbercolumn',

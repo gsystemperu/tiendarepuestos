@@ -35,16 +35,16 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
             scale: 'medium',
             handler: 'onClickGuardarEmpresa'
           }
-  
+
         ]
       });
       me.callParent(arguments);
       me.getCargarDatosEmpresa();
-      
+
     },
     getCargarDatosEmpresa:function(){
         Ext.Ajax.request({
-            url: tiendarepuestos.util.Rutas.empresaDatos, 
+            url: tiendarepuestos.util.Rutas.empresaDatos,
             success: function(response){
                 ob = Ext.JSON.decode(response.responseText).data[0];
                 Ext.ComponentQuery.query('hiddenfield[name=id]')[0].setValue(ob.id);
@@ -64,7 +64,7 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
       i = Ext.create('tiendarepuestos.store.Tiendas');
       d = Ext.create('tiendarepuestos.store.DocumentoVenta');
       var obj = [
-    
+
         {
           xtype  : 'hiddenfield',
           name   : 'id',
@@ -97,14 +97,14 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
             fieldLabel: 'R.U.C',
             name: 'ruc',
             allowBlank: false,
-            
+
         },
         {
             xtype: 'textarea',
             fieldLabel: 'Dirección Fiscal',
             name: 'direccion',
             allowBlank: true,
-           
+
         },
         {
           xtype: 'container',
@@ -137,7 +137,7 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
                     flex: 1,
                     labelAlign:'right'
                 },
-           
+
           ]
         },
        {
@@ -159,19 +159,7 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
                       '->',
                       {
                         xtype: 'button',
-                        text: 'Boleta',
-                        glyph: 0xf0f6,
-                        handler: 'onClickNuevaBoleta'
-                      },
-                      {
-                        xtype: 'button',
-                        text: 'Factura',
-                        glyph: 0xf0f6,
-                        handler: 'onClickNuevaFactura'
-                      },
-                      {
-                        xtype: 'button',
-                        text: 'Guia Remision',
+                        text: 'Boleta - Factura - Guia Remisión',
                         glyph: 0xf0f6,
                         handler: 'onClickNuevaBoleta'
                       },
@@ -181,12 +169,13 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
                         glyph: 0xf0f6,
                         handler: 'onClickNuevaTicketera'
                       },
-                     
+
                     ],
                     items: [{
                       xtype: 'gridpanel',
                       store: i,
                       reference: 'dgvTiendas',
+                      itemId : 'dgvTiendas',
                       selModel: 'rowmodel',
                       plugins: {
                         ptype: 'cellediting',
@@ -226,9 +215,9 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
                             flex: 1,
                             glyph: 0xf014,
                             handler: 'onClickEliminarTienda'
-        
+
                           }
-        
+
                         }
                       ],
                     }]
@@ -241,7 +230,7 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
                         text: 'Nuevo',
                         handler: 'onClickNuevoDocInterno'
                       },
-                     
+
                     ],
                     items: [{
                       xtype: 'gridpanel',
@@ -259,7 +248,7 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
                           flex :1,
                           editor:{
                               xtype:'combo',
-                              store : d, 
+                              store : d,
                               valueField:'descripcion',
                               displayField:'descripcion'
                           }
@@ -269,10 +258,10 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
                             dataIndex: 'serie',
                             flex :1,
                             editor:{ xtype:'textfield'}
-                            
+
                         },
                         {
-                          text : 'Número',
+                          text : 'Inicia',
                           dataIndex: 'numero',
                           flex :1,
                           editor:{ xtype:'numberfield'}
@@ -298,7 +287,7 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
                         text: 'Nuevo',
                         handler: 'onClickNuevaTicketera'
                       },
-                     
+
                     ],
                     items: [{
                       xtype: 'gridpanel',
@@ -316,7 +305,7 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
                           flex :1.5,
                           editor:{
                               xtype:'textfield',
-                              
+
                           }
                       },
                         {
@@ -325,7 +314,7 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
                           flex :1,
                           editor:{
                               xtype:'textfield',
-                              
+
                           }
                       },
                        {
@@ -345,7 +334,7 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
                           }
                         },
                         {
-                          text : 'Número',
+                          text : 'Inicia',
                           dataIndex: 'numero',
                           flex :1,
                           editor:{
@@ -370,7 +359,7 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
       ];
       return obj;
     }
-  
-  
-  
+
+
+
   });

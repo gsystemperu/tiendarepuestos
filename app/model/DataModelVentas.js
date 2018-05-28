@@ -266,7 +266,7 @@ Ext.define('tiendarepuestos.model.CotizacionesFacturar', {
         { name: 'estadosunat', type: 'string' },
         { name: 'totalcotianulado', type: 'float' }
 
-        
+
     ]
 });
 
@@ -311,6 +311,52 @@ Ext.define('tiendarepuestos.model.DetalleIngresoGuiaVista', {
 
 // @Model Detalle de ingreso al almacen , muestra todos los ingresos de una orden de compra
 Ext.define('tiendarepuestos.model.MotivoTranslado', {
+    extend: 'Ext.data.Model',
+    fields: [
+      {name: "id", type:'int' },
+      {name: "descripcion", type:'string' },
+    ]
+});
+
+
+// @Model Documentos de venta Asignados a una tienda
+Ext.define('tiendarepuestos.model.TiendaDocumentoVentaAsignado', {
+    extend: 'Ext.data.Model',
+    fields: [
+      {name: "id", type:'int' },
+      {name: "documentoventa", type:'string' }
+    ]
+});
+// @Model Documentos de venta para asignar una tienda
+Ext.define('tiendarepuestos.model.TiendaDocumentoVenta', {
+    extend: 'Ext.data.Model',
+    fields: [
+      {name: "id", type:'int' },
+      {name: "documentoventa", type:'string' }
+    ]
+});
+
+
+
+// @Model ticketeras de venta Asignados a una tienda
+Ext.define('tiendarepuestos.model.TiendaTicketeraAsignada', {
+    extend: 'Ext.data.Model',
+    fields: [
+      {name: "id", type:'int' },
+      {name: "ticketera", type:'string' }
+    ]
+});
+// @Model ticketeras de venta para asignar una tienda
+Ext.define('tiendarepuestos.model.TiendaTicketera', {
+    extend: 'Ext.data.Model',
+    fields: [
+      {name: "id", type:'int' },
+      {name: "ticketera", type:'string' }
+    ]
+});
+
+// @Model de los metodos de pago
+Ext.define('tiendarepuestos.model.MetodoPago', {
     extend: 'Ext.data.Model',
     fields: [
       {name: "id", type:'int' },

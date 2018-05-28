@@ -149,12 +149,22 @@ $di->set('router',function() {
     $router->add('/modelo_actualizar' , array('controller'=>'mantenimiento','action'=>'modeloactualizar'));
     $router->add('/modelo_eliminar'   , array('controller'=>'mantenimiento','action'=>'modeloeliminar'));
     $router->add('/modelo_listar'     , array('controller'=>'mantenimiento','action'=>'modelolistar'));
-   
-    $router->add('/empresa_datos'     , array('controller'=>'empresa','action'=>'lista'));
-    $router->add('/series_listar'     , array('controller'=>'empresa','action'=>'series'));
-    $router->add('/ticketeras_listar'     , array('controller'=>'empresa','action'=>'ticketeras'));
-    $router->add('/tiendas_listar'     , array('controller'=>'empresa','action'=>'tiendas'));
-    $router->add('/empresa_actualizar'     , array('controller'=>'empresa','action'=>'actualizar'));
+
+    $router->add('/empresa_datos'       , array('controller'=>'empresa','action'=>'lista'));
+    $router->add('/series_listar'       , array('controller'=>'empresa','action'=>'series'));
+    $router->add('/serie_eliminar'      , array('controller'=>'empresa','action'=>'serieseliminar'));
+    $router->add('/ticketeras_listar'   , array('controller'=>'empresa','action'=>'ticketeras'));
+    $router->add('/ticketera_eliminar'  , array('controller'=>'empresa','action'=>'ticketeraeliminar'));
+    $router->add('/tiendas_listar'      , array('controller'=>'empresa','action'=>'tiendas'));
+    $router->add('/tienda_eliminar'     , array('controller'=>'empresa','action'=>'tiendaeliminar'));
+    $router->add('/empresa_actualizar'  , array('controller'=>'empresa','action'=>'actualizar'));
+    $router->add('/empresa_listar_doc_ventas_asignados'  , array('controller'=>'empresa','action'=>'tiendadocumentosventaasignados'));
+    $router->add('/empresa_listar_doc_ventas'  , array('controller'=>'empresa','action'=>'tiendadocumentosventa'));
+    $router->add('/empresa_listar_ticketeras_asignadas'  , array('controller'=>'empresa','action'=>'tiendaticketerasasignadas'));
+    $router->add('/empresa_listar_ticketeras'  , array('controller'=>'empresa','action'=>'tiendaticketeras'));
+    $router->add('/empresa_asignar_ticketera'  , array('controller'=>'empresa','action'=>'tiendaasignarticketera'));
+    $router->add('/empresa_asignar_documento_venta'  , array('controller'=>'empresa','action'=>'tiendaasignardocumentoventa'));
+
     /*
     | @@ Controlador Persona
     */
@@ -191,7 +201,7 @@ $di->set('router',function() {
     $router->add('/producto_inventario_pdf' , array('controller'=>'impresion','action'=>'imprimirstockinventario'));
     $router->add('/producto_actualizar_cantidad' , array('controller'=>'producto','action'=>'actualizarcantidaddisponible'));
 
-    
+
 
     /*
     | @@ Controlador Proveedor
@@ -280,7 +290,7 @@ $di->set('router',function() {
      $router->add('/listar_nombre_moneda', array('controller'=>'facturacion','action'=>'listarnombremoneda'));
      $router->add('/ingresar_apetura_caja', array('controller'=>'facturacion','action'=>'aperturacajaingresar'));
      $router->add('/listar_motivos_translado', array('controller'=>'facturacion','action'=>'listarmotivostranslados'));
-
+     $router->add('/listar_metodo_pago', array('controller'=>'facturacion','action'=>'listarmetodopago'));
 
 
      //@Mantenimientos : Tablas Principales
@@ -314,7 +324,7 @@ $di->set('router',function() {
     $router->add('/imprimirticket', array('controller'=>'impresion','action'=>'imprimirticketera'));
     $router->add('/imprimirguiaremision', array('controller'=>'impresion','action'=>'impresionguiaremision'));
 
-    
+
     //@ Manufactura  (MRP)
     $router->add('/lista_materiales_producto'  , array('controller'=>'manufactura','action'=>'listarmaterialproducto'));
 
