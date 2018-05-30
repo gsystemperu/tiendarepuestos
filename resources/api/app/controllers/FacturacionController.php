@@ -21,7 +21,7 @@ class FacturacionController extends Controller
            $vDocVenta     =  $request->getPost('documentoventa');
            $vIncluyeIgv= ($request->getPost('incluyeigv')? 1:0);
            $vFechaValidoHasta  = ( $request->getPost('validohasta')==''? $request->getPost('fechavalidohasta') : $request->getPost('validohasta'));
-           $vSerieDoc     = $request->getPost('serie');
+           $vSerieDoc     = $request->getPost('seriedoc');
            $vNumeroDoc    = $request->getPost('numerodoc');
            $vPagoAcuenta  = $request->getPost('pagoacuenta');
            $data = array($vId,$vIdCoti,$vFecha,$vIdCliente,$vUsuario,$vJsonDetalle, $vFormaPago,$vModoEntrega,$vDocVenta,$vIncluyeIgv,$vFechaValidoHasta,$vSerieDoc,$vNumeroDoc,$vPagoAcuenta);

@@ -32,7 +32,6 @@ class Facturacion extends \Phalcon\Mvc\Model
     {
         $obj     = new SQLHelpers();
         $param   = $data;
-        //print_r($param);die();
         $sql     =  $obj->executar('ventas','sp_facturacion_punto_venta_agregar',$param);
         return $sql;
     }

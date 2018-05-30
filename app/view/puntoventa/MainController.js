@@ -179,11 +179,15 @@ Ext.define('tiendarepuestos.view.puntoventa.MainController', {
             l.setActiveItem(0);
             Ext.ComponentQuery.query('#txtTotalVentaCaja')[0].setValue('0');
 
-            objrpt = window.open(tiendarepuestos.util.Rutas.imprimirTicket + 'id=' + __data.error, "", "width=700,height=900");
+            switch (__tipodoc) {
+              case 3:objrpt = window.open(tiendarepuestos.util.Rutas.imprimirTicket + 'id=' + __data.error, "", "width=700,height=900");break; //Ticketera Nota Pedido
+              case 2:objrpt = window.open( tiendarepuestos.util.Rutas.rptImprimirNota+ 'id='+ __data.error, "", "width=700,height=900");  break; //Boleta
+              case 1:objrpt = window.open( tiendarepuestos.util.Rutas.rptImprimirNota+ 'id='+ __data.error, "", "width=700,height=900");break; //Factura
+            }
+            
 
             // Impresion Matricial
-            // objrpt = window.open( tiendarepuestos.util.Rutas.rptImprimirNota+ 
-            //'id='+ __data.error, "", "width=700,height=900");
+            // 
             //setTimeout(function(){ objrpt.close()}, 4000);
 
           }
@@ -213,11 +217,13 @@ Ext.define('tiendarepuestos.view.puntoventa.MainController', {
         Ext.ComponentQuery.query('#lblDoc')[0].setHidden(false);
         Ext.ComponentQuery.query('#txtSerieDoc')[0].setHidden(false);
         Ext.ComponentQuery.query('#txtNumeroDoc')[0].setHidden(false);
+        Ext.ComponentQuery.query('#txtNumeroDoc')[0].setValue('**GENERANDO**');
         break;//boleta
       case 1:
         Ext.ComponentQuery.query('#lblDoc')[0].setHidden(false);
         Ext.ComponentQuery.query('#txtSerieDoc')[0].setHidden(false);
         Ext.ComponentQuery.query('#txtNumeroDoc')[0].setHidden(false);
+        Ext.ComponentQuery.query('#txtNumeroDoc')[0].setValue('**GENERANDO**');
         break;//factura
 
     }

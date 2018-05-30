@@ -600,6 +600,7 @@ Ext.define('tiendarepuestos.view.almacen.FormProducto', {
                   boxLabel: 'Maneja Stock',
                   name: 'manejastock',
                   flex: 1,
+                  value :true
                 },
                 {
                   xtype: 'numberfield',

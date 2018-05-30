@@ -77,6 +77,20 @@ class Empresa extends \Phalcon\Mvc\Model
         $sql     =  $obj->executar('public','sp_tienda_asignar_ticketeras',$param);
         return $sql;
     }
+    public static function tiendaEliminarTicketera($data)
+    {
+        $obj     = new SQLHelpers();
+        $param   = $data;
+        $sql     =  $obj->executar('public','sp_tienda_ticketera_eliminar',$param);
+        return $sql;
+    }
+    public static function tiendaEliminarDocumentoVenta($data)
+    {
+        $obj     = new SQLHelpers();
+        $param   = $data;
+        $sql     =  $obj->executar('public','sp_tienda_serie_venta_eliminar',$param);
+        return $sql;
+    }
 
 
 

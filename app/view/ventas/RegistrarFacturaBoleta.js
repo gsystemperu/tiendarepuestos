@@ -208,7 +208,8 @@ Ext.define('tiendarepuestos.view.ventas.RegistrarFacturaBoleta', {
                                           labelAlign :'right',
                                           name : 'numerodoc',
                                           flex : 0.5,
-                                          allowBlank:false
+                                          allowBlank:false,
+                                          value : '**GENERANDO**'
                                         },
                                        
                                        /* {

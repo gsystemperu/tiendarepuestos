@@ -15,17 +15,36 @@ Ext.define('tiendarepuestos.view.puntoventa.AccionesListadoPdv', {
         console.log("aaa");
     },
     onClickVisualizarVenta:function(btn){
-      __record  = Ext.ComponentQuery.query('#dgvVentasFacturarPdv')[0].getSelectionModel().getSelection()[0];
-      if(__record){
+      r  = Ext.ComponentQuery.query('#dgvVentasFacturarPdv')[0].getSelectionModel().getSelection()[0];
+      if(r){
         var objrpt = window.open( tiendarepuestos.util.Rutas.rptVisualizarNota+ 
-        'id='+ __record.get('idfacturacion'), "", "width=700,height=900");
+        'id='+ r.get('idfacturacion'), "", "width=700,height=900");
       }
     },
     onClickImprimirComprobante:function(btn){
-      __record  = Ext.ComponentQuery.query('#dgvVentasFacturarPdv')[0].getSelectionModel().getSelection()[0];
-      if(__record){
-        var objrpt = window.open( tiendarepuestos.util.Rutas.rptImprimirNota+ 
-        'id='+ __record.get('idfacturacion'), "", "width=700,height=900");
+      r  = Ext.ComponentQuery.query('#dgvVentasFacturarPdv')[0].getSelectionModel().getSelection()[0];
+      console.log(r);
+      if(r){
+        switch (r.get('tipodoc')) {
+          case 'BOL':objrpt = window.open( tiendarepuestos.util.Rutas.rptImprimirNota+ 'id='+ r.get('idfacturacion'), "", "width=700,height=900");break;
+          case 'FAC':objrpt = window.open( tiendarepuestos.util.Rutas.rptImprimirNota+ 'id='+ r.get('idfacturacion'), "", "width=700,height=900");break;
+          case 'NOT':objrpt = window.open( tiendarepuestos.util.Rutas.imprimirTicket+ 'id='+ r.get('idfacturacion'), "", "width=700,height=900");break;
+        }
+        
+        
       }
+    },
+    onClickBuscarCotizacionesPorFechas:function(){
+        d=this.lookupReference('dfDesde').getRawValue();
+        h=this.lookupReference('dfHasta').getRawValue();
+        s=Ext.ComponentQuery.query('#dgvVentasFacturarPdv')[0].getStore();
+        s.load({
+          params:{
+            desde : d,
+            hasta : h
+          }
+        });
+
+
     }
 });

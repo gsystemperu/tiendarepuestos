@@ -165,6 +165,11 @@ $di->set('router',function() {
     $router->add('/empresa_asignar_ticketera'  , array('controller'=>'empresa','action'=>'tiendaasignarticketera'));
     $router->add('/empresa_asignar_documento_venta'  , array('controller'=>'empresa','action'=>'tiendaasignardocumentoventa'));
 
+    $router->add('/empresa_eliminar_documento_venta'  , array('controller'=>'empresa','action'=>'tiendaeliminardocumentoventa'));
+    $router->add('/empresa_eliminar_ticketera'  , array('controller'=>'empresa','action'=>'tiendaeliminarticketera'));
+
+
+
     /*
     | @@ Controlador Persona
     */

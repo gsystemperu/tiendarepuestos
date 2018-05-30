@@ -111,7 +111,8 @@ Ext.define('tiendarepuestos.util.Rutas', {
         tiendaEliminar:'resources/api/tienda_eliminar',
         tiendaAsignarDocumentoVenta:'resources/api/empresa_asignar_documento_venta',
         tiendaAsignarTicketera:'resources/api/empresa_asignar_ticketera',
-
+        tiendaEliminarDocumentoVenta:'resources/api/empresa_eliminar_documento_venta',
+        tiendaEliminarTicketera:'resources/api/empresa_eliminar_ticketera',
 
 
     }

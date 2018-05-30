@@ -179,7 +179,7 @@ Ext.define('tiendarepuestos.view.main.Main', {
               src    : 'resources/images/lgsis.png',
               width  : 300,
               height : 80,
-              hidden : true
+              hidden : false
             
             },
             {

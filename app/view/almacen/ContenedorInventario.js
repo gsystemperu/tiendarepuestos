@@ -33,6 +33,7 @@ Ext.define('tiendarepuestos.view.almacen.ContenedorInventario', {
           {
             xtype:'wRegInventarioInicialEditar'
           }
+          
         ],
         tbar: me.getBotonesERP()
 

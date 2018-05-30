@@ -9,7 +9,7 @@ Ext.define('tiendarepuestos.view.puntoventa.Listado',{
         'Ext.ux.DataView.Animated'
     ],
     controller: 'puntoventa-listado',
-    bodyPadding:3,
+    bodyPadding:1,
     layout:'fit',
     initComponent:function(){
         me = this;
@@ -24,18 +24,10 @@ Ext.define('tiendarepuestos.view.puntoventa.Listado',{
                     tpl: [
                         '<tpl for=".">',
                             '<div class="cuarto">',
-                                    //'<table style="width:100%;" border="0" cellpadding="0" cellspacing="0" ><tr>',
-                                       /*'<tpl if="imagen &gt;= true">',
-                                            '<td><img src="resources/images/productos/{idprod}.jpg" width=80 height=80 /></td>',
-                                       '<tpl else >',
-                                            '<td><img src="resources/images/no-img.jpg" width=80 height=80 /></td>',
-                                       '</tpl>',*/
-                                        //'<td><table style="width:100%;" border="0" cellpadding="0" cellspacing="0">',
-
-                                        '<table style="width:100%;" border="0" CELLPADDING="0" CELLSPACING="0">',
+                                          '<table style="width:100%;" border="0" CELLPADDING="0" CELLSPACING="0">',
                                             '<tpl if="sevendepordosis &gt;=true"> ',
                                                  '<tr>',
-                                                     '<td  align="right" class="productoprecio">Precio : S./ {precioventa} <br> Stock Dosis :{stock_dosis} <br> Existencias :{existencias} </strong><br></td>',
+                                                     '<td  align="right" class="productoprecio">Precio : S./ {precioventa} <br> Stock Dosis :{stock_dosis} <br> A Mano :{existencias} </strong><br></td>',
                                                  '</tr>',
                                                  '<tr>',
                                                      '<td class="productonombre">{nombre}</td>',
@@ -44,8 +36,7 @@ Ext.define('tiendarepuestos.view.puntoventa.Listado',{
 
                                             '<tpl if="ventagramos &gt;=true"> ',
                                                  '<tr>',
-                                                     //'<td  align="right" ><div class="productoprecio" >Precio S./ {precioventa} <br>    Dosis : {numerodosis} <br> Stock : {existencias}</div></strong><br></td>',
-                                                     '<td  align="right" class="productoprecio">S./ {precioventa} <br> Stock Gramos : {stock_gramos}  <br> Existencias : {existencias}</strong><br></td>',
+                                                     '<td  align="right" class="productoprecio">S./ {precioventa} <br> Stock Gramos : {stock_gramos}  <br> A Mano : {existencias}</strong><br></td>',
                                                  '</tr>',
                                                  '<tr>',
                                                      '<td class="productonombre">{nombre}</td>',
@@ -54,7 +45,7 @@ Ext.define('tiendarepuestos.view.puntoventa.Listado',{
 
                                             '<tpl if="ventakilos &gt;=true"> ',
                                                  '<tr>',
-                                                     '<td  align="right" class="productoprecio">S./ {precioventa} <br> Stock Kilos : {stock_kilos}  <br> Existencias : {existencias}</strong><br></td>',
+                                                     '<td  align="right" class="productoprecio">S./ {precioventa} <br> Stock Kilos : {stock_kilos}  <br> A Mano : {existencias}</strong><br></td>',
                                                  '</tr>',
                                                  '<tr>',
                                                      '<td class="productonombre">{nombre}</td>',
@@ -62,8 +53,7 @@ Ext.define('tiendarepuestos.view.puntoventa.Listado',{
                                             '</tpl>',
                                             '<tpl if="ventakilos==false && ventagramos ==false && sevendepordosis ==false ">',
                                                   '<tr>',
-                                                      //'<td  align="right" ><div class="productoprecio" >Precio S./ {precioventa} <br>    Dosis : {numerodosis} <br> Stock : {existencias}</div></strong><br></td>',
-                                                      '<td  align="left" class="productoprecio">Precio Venta : S./        {precioventa} <br> Por Unidad : S/.        {preciounidad}  <br> Existencias :    (  {existencias} )</strong><br></td>',
+                                                      '<td  align="left" class="productoprecio">Precio Venta : S./        {precioventa} <br> Precio Unidad : S/.        {preciounidad}  <br> A Mano :    (  {existencias} )</strong><br></td>',
                                                   '</tr>',
                                                   '<tr>',
                                                       '<td class="productonombre">{nombre}</td>',
@@ -71,8 +61,6 @@ Ext.define('tiendarepuestos.view.puntoventa.Listado',{
                                             '</tpl>',
 
                                         '</table>',
-                                    //'</td>',
-                                    //'</tr></table>',
                             '</div>',
                         '</tpl>'
                     ],
@@ -89,31 +77,31 @@ Ext.define('tiendarepuestos.view.puntoventa.Listado',{
                 }
              ],
              tbar:[
-               {
-                   xtype:'label',
-                   text :'PRODUCTO',
-                   padding: '5px 0 0 0',
-                   border: true,
-                   width: 90,
-                   height: 25,
-                   style: {
-                       background: '#6a4b5a',
-                       color: 'white',
-                       textAlign: 'center',
-                       fontWeight: 'bold',
-                       fontSize: '13px'
-                   }
-               },
-               {
-                 xtype: 'textfield',
-                 reference: 'txtBuscarCodigoProd',
-                 itemId: 'txtBuscarCodigoProd',
-                 flex: 1,
-                 enableKeyEvents: true,
-                 listeners:{
-                   keyup:'onKeyUpBuscarProducto'
-                 }
-               }
+                {
+                    xtype:'label',
+                    text :'Producto',
+                    padding: '5px 0 0 0',
+                    border: true,
+                    width: 110,
+                    height: 25,
+                    style: {
+                        background: '#6a4b5a',
+                        color: 'white',
+                        textAlign: 'center',
+                        fontWeight: 'bold',
+                        fontSize: '13px'
+                    }
+                },
+                {
+                  xtype: 'textfield',
+                  reference: 'txtBuscarCodigoProd',
+                  itemId: 'txtBuscarCodigoProd',
+                  flex: 1,
+                  enableKeyEvents: true,
+                  listeners:{
+                    keyup:'onKeyUpBuscarProducto'
+                  }
+                } 
              ]
          });
         this.callParent(arguments);

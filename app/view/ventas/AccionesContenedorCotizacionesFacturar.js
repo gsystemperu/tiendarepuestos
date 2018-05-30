@@ -33,6 +33,7 @@ Ext.define('tiendarepuestos.view.ventas.AccionesContenedorCotizacionesFacturar',
           Ext.ComponentQuery.query('#frmRegCotizacionFacturar')[0].reset();
           Ext.ComponentQuery.query('#frmRegCotizacionFacturar')[0].loadRecord(_record);
           Ext.ComponentQuery.query('#dgvDetalleVentaFacturar')[0].getStore().removeAll();
+          Ext.ComponentQuery.query('textfield[name=numerodoc]')[0].setValue('**GENERANDO**');
           var  _tot = 0;
           Ext.Ajax.request({
               url :tiendarepuestos.util.Rutas.cotizacionDetalle,

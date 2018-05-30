@@ -14,11 +14,10 @@ Ext.define('tiendarepuestos.view.conf.configNuevaTicketeraController', {
       r = b.getWidgetRecord();
       d = this.lookupReference('dgvBoleta').getStore();
       data = {
-        iddoctienda : r.get('id')
+        id : r.get('id')
       };
       if(Ext.isNumber(r.get('id')))
-          console.log("eliminar");
-          //tiendarepuestos.util.Util.ajax(tiendarepuestos.util.Rutas.tiendaEliminar,data,d)
+          tiendarepuestos.util.Util.ajax(tiendarepuestos.util.Rutas.tiendaEliminarTicketera,data,d)
       else
           d.remove(r);
 

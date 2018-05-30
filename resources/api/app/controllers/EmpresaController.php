@@ -185,4 +185,35 @@ class EmpresaController extends Controller
        }
   }
 
+  public function tiendaeliminarticketeraAction()
+  {
+      $request        = new Phalcon\Http\Request();
+      $response       = new \Phalcon\Http\Response();
+      if($request->isPost() ==true)
+      {
+           $data       = $request->getPost('id');
+           $jsonData = Empresa::tiendaEliminarTicketera(array($data));
+           $response->setContentType('application/json', 'UTF-8');
+           $response->setContent(json_encode($jsonData[0], JSON_NUMERIC_CHECK));
+           return $response;
+      }
+ }
+
+ public function tiendaeliminardocumentoventaAction()
+  {
+      $request        = new Phalcon\Http\Request();
+      $response       = new \Phalcon\Http\Response();
+      if($request->isPost() ==true)
+      {
+           $data       = $request->getPost('id');
+           $jsonData = Empresa::tiendaEliminarDocumentoVenta(array($data));
+           $response->setContentType('application/json', 'UTF-8');
+           $response->setContent(json_encode($jsonData[0], JSON_NUMERIC_CHECK));
+           return $response;
+           
+
+           
+      }
+ }
+
 }

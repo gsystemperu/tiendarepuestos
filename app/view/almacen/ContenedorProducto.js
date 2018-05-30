@@ -35,6 +35,10 @@ Ext.define('tiendarepuestos.view.almacen.ContenedorProducto', {
       {
         id: 'prod-2',
         xtype:'wProductosExistencias'
+      },
+      {
+        id: 'prod-3',
+        xtype:'wRegMaestros'
       }
     ],
     tbar: me.getBotonesERP()
@@ -72,38 +76,23 @@ Ext.define('tiendarepuestos.view.almacen.ContenedorProducto', {
 
          text : _txt1,
          iconCls :'fa  fa-dropbox  fa-2x',
-        // flex :1,
          textAlign :'right',
          iconAlign:'left',
          scale :'large',
          itemId:'btnExistencias',
          handler:'onClickVerExistencias'
-       }
-       /*
-       ,{
-         text : _txt2,
-        // flex :1,
-         iconCls :'fa  fa-dropbox  fa-2x',
-         textAlign :'right',
-         iconAlign:'left',
-         scale :'large',
-         itemId:'btnPedidos'
-
        },
        {
-         text : _txt3,
-         //flex :1,
-         iconCls : 'x-icon-ventas',
-         iconCls :'fa  fa-dropbox  fa-2x',
-         textAlign :'right',
-         iconAlign:'left',
-         scale :'large',
-         itemId:'btnVentas'
 
-
-       }*/
-
-
+        text : 'Regresar ingreso Producto',
+        iconCls :'fa fa-mail-reply-all  fa-2x',
+        textAlign :'right',
+        iconAlign:'left',
+        scale :'large',
+        hidden:true,
+        itemId:'btnRegresarIngresoProducto',
+        handler:'onClickRegresarIngresoProducto'
+      }
     ];
   },
 
@@ -143,7 +132,14 @@ Ext.define('tiendarepuestos.view.almacen.ContenedorProducto', {
             console.log(e);return false;
       }
   },
-
+  onClickRegresarIngresoProducto:function(){
+    try{
+      this.doCardNavigation(1);
+      Ext.ComponentQuery.query('#btnRegresarIngresoProducto')[0].setHidden(true);
+    } catch (e) {
+          console.log(e);return false;
+    }
+  },
 
   doCardNavigation: function (incr) {
       var me = this;

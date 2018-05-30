@@ -194,7 +194,7 @@ Ext.define('tiendarepuestos.view.ventas.RegistroCotizacionFacturar', {
                                           xtype:'textfield',
                                           fieldLabel :'Serie/Número',
                                           labelAlign :'right',
-                                          name : 'serie',
+                                          name : 'seriedoc',
                                           value : '001',
                                           flex : 0.5,
                                           allowBlank:false

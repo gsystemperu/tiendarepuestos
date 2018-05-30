@@ -68,8 +68,14 @@ Ext.define('tiendarepuestos.view.puntoventa.ListadoPdv', {
                 'Ext.grid.plugin.Clipboard'
             ],
             emptyText: 'NO HAY REGISTROS PARA MOSTRAR SEGUN EL RANGO DE FECHAS',
+            features: [{
+                id: 'group',
+                ftype: 'groupingsummary',
+                groupHeaderTpl: 'Fecha : {name}',
+                hideGroupedHeader: true,
+                enableGroupingMenu: false
+            }],
             columns: [
-               {xtype: 'rownumberer'},
                 {
                         text: 'F.Facturado',
                         dataIndex: 'fechafact',
@@ -127,21 +133,37 @@ Ext.define('tiendarepuestos.view.puntoventa.ListadoPdv', {
                     text: 'Total',
                     dataIndex: 'totalcoti',
                     flex: 0.7,
-                    align: 'right'
+                    align: 'right',
+                    renderer:Ext.util.Format.numberRenderer('0.00000'),
+                    summaryType: 'sum',
+                    summaryRenderer: function(v,summaryData,field,metaData){
+                       // t = v - metaData.record.data.totalcotianulado;
+                        return v.toFixed(5);
+                    }
                 },
                 {
                     xtype: 'numbercolumn',
                     text: 'Acuenta',
                     dataIndex: 'pagoacuenta',
                     flex: 0.7,
-                    align: 'right'
+                    align: 'right',
+                    renderer:Ext.util.Format.numberRenderer('0.00000'),
+                    summaryType: 'sum',
+                    summaryRenderer: function(v,summaryData,field,metaData){
+                        return v.toFixed(5);
+                    }
                 },
                 {
                     xtype: 'numbercolumn',
                     text: 'Saldo',
                     dataIndex: 'saldopagar',
                     flex: 0.7,
-                    align: 'right'
+                    align: 'right',
+                    renderer:Ext.util.Format.numberRenderer('0.00000'),
+                    summaryType: 'sum',
+                    summaryRenderer: function(v,summaryData,field,metaData){
+                        return v.toFixed(5);
+                    }
                 },
                 {
                     xtype: 'widgetcolumn',
@@ -234,10 +256,29 @@ Ext.define('tiendarepuestos.view.puntoventa.ListadoPdv', {
                     text  :'Re-Imprimir',
                     tooltip: 'Imprime el comprobante de la venta!',
                     handler: 'onClickImprimirComprobante'
-                },
-
+                }
             ]
-        }]
+        },
+        '->',
+        {
+            xtype: 'button',
+            text  :'Impresion',
+            tooltip: 'Listado de reportes de venta de caja',
+            menu: [{
+                text:'Listado',
+                handler: 'onClickImprimirListado'
+            },{
+                text:'Consolidado'
+            },{
+                text:'Resumen'
+            }]
+        },{
+            xtype: 'button',
+            text  :'Cierre de Caja',
+            tooltip: 'Cierre de caja',
+            handler: 'onClickCierreCaja'
+        }
+        ]
       };//Fin Objeto
     }
 });

@@ -408,6 +408,7 @@ Ext.define('tiendarepuestos.store.PuntoVentaPagos', {
     model   :'tiendarepuestos.model.CotizacionesFacturar',
     autoLoad: false,
     extraParams: {desde : '',hasta:''},
+    groupField: 'fechafact',
     proxy: {
         type: 'ajax',
         api: {read: 'resources/api/buscar_punto_venta_pagos'},
