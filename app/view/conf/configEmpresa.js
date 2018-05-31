@@ -54,6 +54,17 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
                 Ext.ComponentQuery.query('textfield[name=lema]')[0].setValue(ob.lema);
                 Ext.ComponentQuery.query('textfield[name=correo]')[0].setValue(ob.correo);
                 Ext.ComponentQuery.query('textfield[name=telefono]')[0].setValue(ob.telefono);
+
+                if(ob.imagen=='0'){
+                  Ext.ComponentQuery.query('#imgemp')[0].setSrc(
+                    tiendarepuestos.util.Rutas.srcimagenes + 'P-00.jpg?_='+(new Date().getTime())
+                  )
+                }else{
+                  Ext.ComponentQuery.query('#imgemp')[0].setSrc(
+                    tiendarepuestos.util.Rutas.srcimagenes + 'logo.jpg?_='+(new Date().getTime())
+                  )
+                }
+
             }
          });
          return true;
@@ -86,18 +97,80 @@ Ext.define('tiendarepuestos.view.conf.configEmpresa', {
           reference: 'ticketeras'
         },
         {
-          xtype: 'textfield',
-          fieldLabel: 'Razón Social',
-          name: 'razonsocial',
-          allowBlank: false,
-          fieldStyle: 'font-size:25px;text-transform: uppercase;background-color:#E1E1E1;border:false;'
+          xtype: 'hiddenfield',
+          name: 'imagen',
+          reference: 'imagen'
         },
         {
-            xtype: 'textfield',
-            fieldLabel: 'R.U.C',
-            name: 'ruc',
-            allowBlank: false,
-
+          xtype: 'hiddenfield',
+          name: 'imagenguardar',
+          itemId: 'imagenguardar',
+          value : 0
+        },
+        {
+          xtype: 'container',
+          layout: 'hbox',
+          items: [
+            {
+              xytpe: 'panel',
+              flex: 1,
+              bodyPadding: 10,
+              items: [
+                {
+                  xtype: 'image',
+                  name : 'imgemp',
+                  itemId :'imgemp',
+                  src: 'resources/images/imagen.png',
+                  height: 120,
+                  width: 150
+                }
+              ],
+              tbar: [
+                '->',
+                {
+                  xtype: 'filebutton',
+                  itemId:'fileimg',
+                  glyph: 0xf1c5,
+                  listeners: {
+                    change: 'onChangeCargarImagenBase64'
+                  }
+                },
+                {
+                  xtype:'button',
+                  glyph: 0xf014,
+                  tooltip : 'Quitar imagen',
+                  handler :'onClickRemoverImagen'
+                }
+              ]
+            },
+            {
+              xytpe: 'container',
+              flex: 2,
+              layout: {
+                type: 'vbox',
+                pack: 'start',
+                align: 'stretch'
+              },
+              padding: '10 10 10 10',
+              items: [
+                {
+                  xtype: 'textfield',
+                  fieldLabel: 'Razón Social',
+                  name: 'razonsocial',
+                  allowBlank: false,
+                  fieldStyle: 'font-size:25px;text-transform: uppercase;background-color:#E1E1E1;border:false;'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: 'R.U.C',
+                    name: 'ruc',
+                    allowBlank: false,
+        
+                }
+  
+              ]
+            }
+          ]
         },
         {
             xtype: 'textarea',

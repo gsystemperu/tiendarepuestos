@@ -613,7 +613,8 @@ class ImpresionController extends Controller
       
             $pdf->AddPage();
             $pdf->SetFont($font,'',$tam);
-           // $pdf->Image('../../images/logo.png', 10, 3, 60); //130, 3, 60);
+            $pdf->Ln(1);
+            $pdf->Image('../public/img/logo.jpg', 10, 3, 28);
             $pdf->setX(100);
             $pdf->MultiCell($wg,$in, pinta($dataEmpresa->razonsocial),'T','L');
             $pdf->setX(100);

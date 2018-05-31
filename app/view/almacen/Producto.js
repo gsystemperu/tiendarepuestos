@@ -78,7 +78,15 @@ Ext.define('tiendarepuestos.view.almacen.Producto', {
                 text: 'A Mano',
                 dataIndex: 'existencias',
                 flex: 0.5,
-                align: 'right'
+                align: 'right',
+                renderer: function (value, metaData, record) {
+                  if (value <= 0)
+                    metaData.style = "color:red;font-Size:15px";
+                  else
+                    metaData.style = "font-Size:15px";
+  
+                  return value;
+                }
               },
               {
                 //xtype:'numbercolumn',

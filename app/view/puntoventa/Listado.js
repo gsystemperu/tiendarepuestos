@@ -13,7 +13,7 @@ Ext.define('tiendarepuestos.view.puntoventa.Listado',{
     layout:'fit',
     initComponent:function(){
         me = this;
-        __storeProducto     = Ext.create('tiendarepuestos.store.Productos');
+        st     = Ext.create('tiendarepuestos.store.Productos');
        
          Ext.apply(this,{
              items:[{
@@ -68,41 +68,99 @@ Ext.define('tiendarepuestos.view.puntoventa.Listado',{
                         xclass: 'Ext.ux.DataView.Animated'
                     },
                     multiSelect:true,
-                    store:__storeProducto,
+                    store:st,
                     trackOver: true,
                     overItemCls: 'x-item-over',
                     itemSelector: 'div.cuarto',
                     emptyText: ' ',
                     listeners:{ itemclick :'accionClickItem'}
                 }
+                
              ],
-             tbar:[
-                {
-                    xtype:'label',
-                    text :'Producto',
-                    padding: '5px 0 0 0',
-                    border: true,
-                    width: 110,
-                    height: 25,
-                    style: {
-                        background: '#6a4b5a',
-                        color: 'white',
-                        textAlign: 'center',
-                        fontWeight: 'bold',
-                        fontSize: '13px'
-                    }
+             dockedItems: [{
+                xtype: 'toolbar',
+                dock: 'top',
+                layout: {
+                    type: 'vbox',
+                    align: 'stretch',
+                    pack: 'center'
                 },
-                {
-                  xtype: 'textfield',
-                  reference: 'txtBuscarCodigoProd',
-                  itemId: 'txtBuscarCodigoProd',
-                  flex: 1,
-                  enableKeyEvents: true,
-                  listeners:{
-                    keyup:'onKeyUpBuscarProducto'
-                  }
-                } 
-             ]
+                items: [
+                    {
+                        xtype:'container',
+                        layout:{
+                            type: 'hbox',
+                            align: 'stretch',
+                            pack: 'center'
+                        },
+                        items:[
+                            {
+                                xtype:'label',
+                                text :'Codigo Barras',
+                                padding: '5px 0 0 0',
+                                border: true,
+                                width: 110,
+                                height: 25,
+                                style: {
+                                    background: '#6a4b5a',
+                                    color: 'white',
+                                    textAlign: 'center',
+                                    fontWeight: 'bold',
+                                    fontSize: '13px'
+                                }
+                            },
+                            {
+                              xtype: 'textfield',
+                              reference: 'txtBuscarCodigoBarrasProd',
+                              itemId: 'txtBuscarCodigoBarrasProd',
+                              flex: 1,
+                              enableKeyEvents: true,
+                              listeners:{
+                                change:'onChangeBuscarProductoBarras',
+                                keyup:'onKeyBuscarProductoBarras'
+                              }
+                            }
+                        ]
+                    },
+                    {
+                        xtype:'container',
+                        layout:{
+                            type: 'hbox',
+                            align: 'stretch',
+                            pack: 'center'
+                        },
+                        items:[
+                            {
+                                xtype:'label',
+                                text :'Producto',
+                                padding: '5px 0 0 0',
+                                border: true,
+                                width: 110,
+                                height: 25,
+                                style: {
+                                    background: '#6a4b5a',
+                                    color: 'white',
+                                    textAlign: 'center',
+                                    fontWeight: 'bold',
+                                    fontSize: '13px'
+                                }
+                            },
+                            {
+                              xtype: 'textfield',
+                              reference: 'txtBuscarCodigoProd',
+                              itemId: 'txtBuscarCodigoProd',
+                              flex: 1,
+                              enableKeyEvents: true,
+                              listeners:{
+                                keyup:'onKeyUpBuscarProducto'
+                              }
+                            }
+                        ]
+                    },
+
+                ]
+            }]
+          
          });
         this.callParent(arguments);
 

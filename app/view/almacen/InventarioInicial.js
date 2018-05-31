@@ -9,7 +9,8 @@ Ext.define('tiendarepuestos.view.almacen.InventarioInicial', {
     'tiendarepuestos.view.almacen.InventarioInicialController',
     'Ext.grid.*',
     'Ext.form.field.*',
-    'Ext.grid.plugin.*'
+    'Ext.grid.plugin.*',
+    'tiendarepuestos.util.Rutas'
   ],
   layout: {
     type: 'vbox',

@@ -38,6 +38,9 @@ class ProductoController extends Controller
                     if(strlen($request->get('idclie'))==0){
                       $data = array($request->get('nombre'));
                       $jsonData = Producto::buscarNombre($data);
+                    }elseif($request->get('codigobarras')!=''){
+                      $data = array($request->get('codigobarras'), $request->get('idclie'));
+                      $jsonData = Producto::buscarCodigoBarras($data);
                     }else{
                       $data = array($request->get('nombre'),$request->get('idclie'));
                       $jsonData = Producto::buscarNombreYcliente($data);
@@ -169,11 +172,17 @@ class ProductoController extends Controller
                     $formato->esNumeroCero($request->getPost('idmodelo')),
                     $formato->esNumeroCero($request->getPost('idmarca')),
                     $request->getPost('ventaunidad'),
-                    $formato->esNumeroCero($request->getPost('preciounidad'))
+                    $formato->esNumeroCero($request->getPost('preciounidad')),
+                    $request->getPost('imagenguardar')
 
               );
 
               $jsonData  = Producto::actualizar($data);
+              $id        = $jsonData[0]["error"];
+              if($request->getPost('imagen')!='' && $request->getPost('imagenguardar')==1){
+                 //echo "aaaaa";die();
+                 $formato->guardarImagenProducto($request->getPost('imagen'),strval($id));
+              }
               $response->setContentType('application/json', 'UTF-8');
               $response->setContent(json_encode($jsonData[0], JSON_NUMERIC_CHECK));
               return $response;

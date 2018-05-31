@@ -61,12 +61,14 @@ Ext.define('tiendarepuestos.view.puntoventa.AccionesContenedorMain', {
       Ext.create('tiendarepuestos.view.puntoventa.AperturaCaja');
     },
     onSelectCliente :function ( combo, record, eOpts ) {
-      __store = Ext.ComponentQuery.query('#dvListaProductos')[0].getStore();
-      __store.load({
+      s = Ext.ComponentQuery.query('#dvListaProductos')[0].getStore();
+      s.load({
         params:{
           nombre : '$%76853()='
         }
       });
+      Ext.ComponentQuery.query('#txtBuscarCodigoProd')[0].focus(false,100);
+
     },
 
 

@@ -68,19 +68,26 @@ Ext.define('tiendarepuestos.view.almacen.AccionesProducto', {
 
     onClickItemProductoERP : function( grid, record, index, eOpts ) {
         Ext.ComponentQuery.query('#btnExistencias')[0].setText(Ext.String.format('Stock  : {0}',(record.get('existencias')==''?0:record.get('existencias'))      ));
-       // Ext.ComponentQuery.query('#btnPedidos')[0].setText(Ext.String.format('Cotizaciones  : {0}',(record.get('cotizaciones')==''?0:record.get('cotizaciones'))));
-       // Ext.ComponentQuery.query('#btnVentas')[0].setText(Ext.String.format('Ventas  : {0}',(record.get('ventas')==''?0:record.get('ventas'))));
     },
     onClickItemProducto : function( grid, record, index, eOpts ) {
         Ext.ComponentQuery.query('#btnExistencias')[0].setText(Ext.String.format('Stock  : {0}',(record.get('existencias')==''?0:record.get('existencias'))      ));
-       // Ext.ComponentQuery.query('#btnPedidos')[0].setText(Ext.String.format('Cotizaciones  : {0}',(record.get('cotizaciones')==''?0:record.get('cotizaciones'))));
-       // Ext.ComponentQuery.query('#btnVentas')[0].setText(Ext.String.format('Ventas  : {0}',(record.get('ventas')==''?0:record.get('ventas'))   ));
         try {
             var me = Ext.ComponentQuery.query('#wContenedorProducto')[0];
             var l  = me.getLayout();
             l.setActiveItem(1);
             Ext.ComponentQuery.query('#tabDetalleProducto')[0].getLayout().setActiveItem(0);
             Ext.ComponentQuery.query('#wFormProducto')[0].loadRecord(record);
+            if(record.get('fotoprod')=='P-00.jpg'){
+              Ext.ComponentQuery.query('#imgprod')[0].setSrc(
+                tiendarepuestos.util.Rutas.srcimagenes +  'P-00.jpg?_='+(new Date().getTime())
+              )
+            }else{
+              t = new Date().getTime();
+              Ext.ComponentQuery.query('#imgprod')[0].setSrc(
+                tiendarepuestos.util.Rutas.srcimagenes + record.get('fotoprod')+'?_='+t.toString()
+              )
+            }
+            
             Ext.Ajax.request({
                 url :tiendarepuestos.util.Rutas.productoBuscarProveedores,
                 params:{idprod : record.get('id')},
@@ -164,7 +171,8 @@ Ext.define('tiendarepuestos.view.almacen.AccionesProducto', {
           __store = Ext.ComponentQuery.query('#dgvProductos')[0].getStore();
           __store.load({
               params:{
-                nombre : obj.getValue()
+                nombre : obj.getValue(),
+                idclie : ''
               }
           });
       }
@@ -275,6 +283,7 @@ Ext.define('tiendarepuestos.view.almacen.AccionesProducto', {
      Ext.ComponentQuery.query('#frmdispo')[0].loadRecord(r);
     },
     onChangeCargarImagenBase64:function(field, path){
+      me = this;
       if (path) {
         files = Ext.ComponentQuery.query("#fileimg")[0].fileInputEl.dom.files;  
         file = files[0];
@@ -291,11 +300,12 @@ Ext.define('tiendarepuestos.view.almacen.AccionesProducto', {
             binaryString += String.fromCharCode(bytes[i]);
           }
           base64String = btoa(binaryString);
-
           srcBase64 = "data:image/jpeg;base64," + base64String;
+          Ext.ComponentQuery.query('#imagen')[0].setValue(srcBase64);
           Ext.ComponentQuery.query('#imgprod')[0].setSrc(
             srcBase64
           );
+          Ext.ComponentQuery.query('#imagenguardar')[0].setValue(1);
         }
       }
     },
@@ -303,6 +313,8 @@ Ext.define('tiendarepuestos.view.almacen.AccionesProducto', {
       Ext.ComponentQuery.query('#imgprod')[0].setSrc(
         'resources/images/imagen.png'
       );
+      Ext.ComponentQuery.query('#imagen')[0].setValue('');
+      Ext.ComponentQuery.query('#imagenguardar')[0].setValue(0);
     }
 
 

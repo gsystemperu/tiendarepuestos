@@ -80,6 +80,9 @@ Ext.define('tiendarepuestos.Application', {
       'tiendarepuestos.model.DataModelVentas',
       'tiendarepuestos.model.DataModelMrp'
     ],
+    controllers:[
+        'Main'
+    ],
     launch: function () {
        //$('#splashscreen').hide();
        Ext.util.Format.decimalSeparator  = '.';

@@ -15,7 +15,8 @@ Ext.define('tiendarepuestos.store.Productos', {
     autoDestroy: true,
     extraParams :{
       nombre : '',
-      tipoproducto : 0
+      tipoproducto : 0,
+      codigobarras: ''
     },
     proxy: {
         type: 'ajax',

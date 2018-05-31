@@ -45,7 +45,24 @@
           case "12":$nombre='DICIEMBRE'; break;
 		    }
         return $nombre;
-		}
+	}
+	
+	public function guardarImagen($obj,$nom){
+		$rs = true;
+		$image = $obj;
+		$image = imagecreatefrompng($image);
+		imagejpeg($image, 'img/'.$nom.'.jpg', 100);
+		imagedestroy($image);
+		return $rs;
+	}
+	public function guardarImagenProducto($obj,$nom){
+		$rs = true;
+		$image = $obj;
+		$image = imagecreatefrompng($image);
+		imagejpeg($image, 'img/P-'.$nom.'.jpg', 100);
+		imagedestroy($image);
+		return $rs;
+	}
 
 
  	}

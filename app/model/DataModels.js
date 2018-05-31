@@ -331,7 +331,8 @@ Ext.define('tiendarepuestos.model.Producto', {
         {name: "marca",type: 'string'},
         {name: "ventaunidad",type: 'boolean'},
         {name: "preciounidad",type: 'float'},
-        {name: "stockminimo",type: 'float'}
+        {name: "stockminimo",type: 'float'},
+        {name: "fotoprod",type: 'string'}
     ]
 });
 

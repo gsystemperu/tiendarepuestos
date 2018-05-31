@@ -7,13 +7,16 @@ Ext.define('tiendarepuestos.view.main.Main', {
     'tiendarepuestos.view.menu.Tree'
   ],
   controller: 'main',
+  initComponent:function(){
+    this.callParent();;
+  },
   items: [
     {
       region: 'west',
       collapsible: true,
       titleCollapse :false,
       collapsed:false,
-      title: '-- Repuestos Angelica --',
+      itemId : 'panMenu',
       titleAlign : 'center',
       width: 230,
       layout: {
@@ -179,7 +182,7 @@ Ext.define('tiendarepuestos.view.main.Main', {
               src    : 'resources/images/lgsis.png',
               width  : 300,
               height : 80,
-              hidden : false
+              hidden : true
             
             },
             {

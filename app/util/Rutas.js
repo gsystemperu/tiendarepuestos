@@ -114,7 +114,8 @@ Ext.define('tiendarepuestos.util.Rutas', {
         tiendaEliminarDocumentoVenta:'resources/api/empresa_eliminar_documento_venta',
         tiendaEliminarTicketera:'resources/api/empresa_eliminar_ticketera',
 
-
+        //@ Imagen
+        srcimagenes: 'resources/api/public/img/'
     }
 
 });

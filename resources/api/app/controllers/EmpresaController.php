@@ -89,6 +89,7 @@ class EmpresaController extends Controller
     public function actualizarAction(){
         $request        = new Phalcon\Http\Request();
         $response       = new \Phalcon\Http\Response();
+        $util           = new FuncionesHelpers();
         if($request->isPost() ==true)
         {
              $data = array(
@@ -101,8 +102,14 @@ class EmpresaController extends Controller
                 $request->getPost('telefono'),
                 $request->getPost('tiendas'),
                 $request->getPost('documentos'),
-                $request->getPost('ticketeras')
+                $request->getPost('ticketeras'),
+                $request->getPost('imagenguardar')
              );
+
+             if($request->getPost('imagen') && $request->getPost('imagenguardar')==1){
+                $util->guardarImagen($request->getPost('imagen'),'logo');
+             }
+             
              $jsonData = Empresa::actualizar($data);
              $response->setContentType('application/json', 'UTF-8');
              $response->setContent(json_encode($jsonData[0], JSON_NUMERIC_CHECK));

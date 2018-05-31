@@ -146,6 +146,42 @@ Ext.define('tiendarepuestos.view.conf.configEmpresaController', {
         tiendarepuestos.util.
         Util.crearWindowOpenMantenimiento('Asignar Ticketera',300,650,o.getStore(),'wnuevaticketera',r.get('id'));
       }
+    },
+    onChangeCargarImagenBase64:function(field, path){
+      me = this;
+      if (path) {
+        files = Ext.ComponentQuery.query("#fileimg")[0].fileInputEl.dom.files;  
+        file = files[0];
+        reader = new FileReader();
+        reader.readAsArrayBuffer(file);
+        reader.onloadend = function (event) {
+          var binaryString = '',
+            bytes = new Uint8Array(event.target.result),
+            length = bytes.byteLength,
+            i,
+            base64String;
+          // convert to binary string
+          for (i = 0; i < length; i++) {
+            binaryString += String.fromCharCode(bytes[i]);
+          }
+          base64String = btoa(binaryString);
+
+          srcBase64 = "data:image/jpeg;base64," + base64String;
+          me.lookupReference('imagen').setValue(srcBase64);
+          Ext.ComponentQuery.query('#imgemp')[0].setSrc(
+            srcBase64
+          );
+          Ext.ComponentQuery.query('#imagenguardar')[0].setValue(1);
+          
+        }
+      }
+    },
+    onClickRemoverImagen:function(b){
+      Ext.ComponentQuery.query('#imgemp')[0].setSrc(
+        'resources/images/imagen.png'
+      );
+      this.lookupReference('imagen').setValue('');
+      Ext.ComponentQuery.query('#imagenguardar')[0].setValue(0);
     }
 
   });

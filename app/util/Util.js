@@ -107,8 +107,11 @@ Ext.define('tiendarepuestos.util.Util', {
                         base64String = btoa(binaryString);
                         return "data:image/jpeg;base64," + base64String ;
                     }
-                       
-
+                    
+        },
+        focusControl:function(obj){
+            Ext.ComponentQuery.query('#'+ obj.toString())[0].focus(false,100);
         }
      }
 });
+

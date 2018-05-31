@@ -22,7 +22,6 @@ Ext.define('tiendarepuestos.view.puntoventa.Main',{
     initComponent: function () {
        me = this;
        var _storeDetalle =Ext.create('tiendarepuestos.store.CajaDetalleVenta');
-       //var _storeFormaPago = Ext.create('tiendarepuestos.store.FormaPago');
        Ext.apply(me, {
            items: me.getItems(_storeDetalle, 1),
         
@@ -30,7 +29,6 @@ Ext.define('tiendarepuestos.view.puntoventa.Main',{
        this.callParent(arguments);
    },
    getItems: function (_storeDetalle, _numeromesa) {
-      //__storeClientes  = Ext.create('tiendarepuestos.store.Clientes');
       var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
           clicksToMoveEditor: 1,
           autoCancel: false

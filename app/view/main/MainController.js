@@ -9,10 +9,10 @@ Ext.define('tiendarepuestos.view.main.MainController', {
     'tiendarepuestos.store.tree.ControlVentas',
     'tiendarepuestos.store.tree.Mantenimiento',
     'tiendarepuestos.store.tree.ControlUsuarios',
-    'tiendarepuestos.store.tree.ControlManufactura'
+    'tiendarepuestos.store.tree.ControlManufactura',
+    'tiendarepuestos.Global'
 
   ],
-
   alias: 'controller.main',
   onExpandPanel: function (pan, obj) {
     /**
@@ -139,6 +139,18 @@ Ext.define('tiendarepuestos.view.main.MainController', {
     var store = Ext.create('tiendarepuestos.store.tree.ControlManufactura');
     _ref.treeControlManufactura.setStore(store);
 
+    Ext.Ajax.request({
+      url: tiendarepuestos.util.Rutas.empresaDatos,
+      success: function(response){
+          ob = Ext.JSON.decode(response.responseText).data[0];
+          tiendarepuestos.Global.loadData(ob);
+          Ext.ComponentQuery.query('#panMenu')[0].setTitle(tiendarepuestos.Global.empresa);
+      }
+   });
+
+
+   
+    
   },
   onClickOpcionMenu: function (obj, record, item, index, e, eOpts) {
     _view = record.get("itemId");

@@ -58,11 +58,11 @@ class Producto extends \Phalcon\Mvc\Model
        return $sql;
     }
 
-    public static function buscarCodigoBarras($codigo)
+    public static function buscarCodigoBarras($data)
     {
         $obj     = new SQLHelpers();
-        $param   = array($codigo);
-        $sql     =  $obj->executarJson('inventario','sp_producto_buscar_codigo_barras',$param);
+        $param   = $data;
+        $sql     =  $obj->executarJson('inventario','sp_producto_buscar_codigo_barra',$param);
         return $sql;
     }
     public static function buscarCodigoSerie($serie)

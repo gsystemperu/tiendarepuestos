@@ -69,21 +69,6 @@ Ext.define('tiendarepuestos.view.almacen.FormProducto', {
     _storeDetProvProd = Ext.create('tiendarepuestos.store.DetProductoProveedor', {});
 
     var obj = [
-      /*{
-          xtype: 'label',
-          text :'Producto / Nuevo',
-          padding:0,
-          border: false,
-          flex: 1,
-          //height : 30,
-          padding:'5 5 5 5',
-          style: {
-            color: '#775c80',
-            textAlign: 'left',
-            fontWeight: 'bold',
-            fontSize: '15px'
-          }
-        },*/
       {
         xtype: 'hiddenfield',
         name: 'id',
@@ -93,6 +78,17 @@ Ext.define('tiendarepuestos.view.almacen.FormProducto', {
         xtype: 'hiddenfield',
         name: 'jsondetalle',
         itemId: 'jsondetalle'
+      },
+      {
+        xtype: 'hiddenfield',
+        name: 'imagen',
+        itemId: 'imagen'
+      },
+      {
+        xtype: 'hiddenfield',
+        name: 'imagenguardar',
+        itemId: 'imagenguardar',
+        value : 0
       },
       {
         xtype: 'container',
@@ -106,7 +102,7 @@ Ext.define('tiendarepuestos.view.almacen.FormProducto', {
               {
                 xtype: 'image',
                 name : 'fotoprod',
-                src: 'resources/images/imagen.png',
+                //src: 'resources/images/imagen.png',
                 itemId: 'imgprod',
                 height: 90,
                 width: 100

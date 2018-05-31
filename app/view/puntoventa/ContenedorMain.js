@@ -43,28 +43,13 @@ Ext.define('tiendarepuestos.view.puntoventa.ContenedorMain', {
     this.callParent();
   },
   getBotonesERP:function(){
-    __storeClientes  = Ext.create('tiendarepuestos.store.Clientes');
+    sc  = Ext.create('tiendarepuestos.store.Clientes');
     return obj = [
-      /*{
-          xtype:'label',
-          text :'CLIENTE',
-          padding: '5px 0 0 0',
-          border: true,
-          width: 70,
-          height: 25,
-          style: {
-              background: '#775c80',
-              color: 'white',
-              textAlign: 'center',
-              fontWeight: 'bold',
-              fontSize: '11px'
-          }
-      },*/
       {
         xtype:'combo',
         flex: 2.9,
         fieldStyle : 'font-size:18px;font-weight:bold; text-transform:uppercase;',
-        store  :__storeClientes,
+        store  :sc,
         valueField : 'idper',
         displayField : 'nombreper',
         queryMode : 'local',
