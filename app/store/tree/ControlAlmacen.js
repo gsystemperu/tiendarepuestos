@@ -67,7 +67,7 @@ Ext.define('tiendarepuestos.store.tree.ControlAlmacen', {
         
         ]
       },
-      /*{
+      {
         text: 'Reportes',
         expanded: true,
         //leaf : true,
@@ -79,10 +79,24 @@ Ext.define('tiendarepuestos.store.tree.ControlAlmacen', {
             //itemId: "wContenedorOrdenCompra",
             titulo: "Stock",
             glyph: 'xf16b'
+          },
+          {
+            text: 'Movimientos',
+            leaf: true,
+            //itemId: "wContenedorOrdenCompra",
+            titulo: "Stock",
+            glyph: 'xf16b'
+          },
+          {
+            text: 'Valorizacion Inventario',
+            leaf: true,
+            //itemId: "wContenedorOrdenCompra",
+            titulo: "Stock",
+            glyph: 'xf16b'
           }
         
         ]
-      },*/
+      },
 
 
     ]

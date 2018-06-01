@@ -71,7 +71,9 @@ Ext.define('tiendarepuestos.Application', {
         //@Conf views
         'conf.configEmpresa',
         'conf.configNuevaBoleta',
-        'conf.configNuevaTicketera'
+        'conf.configNuevaTicketera',
+        //@Usuarios views
+        'seguridad.Usuarios'
 
     ],
 

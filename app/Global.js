@@ -9,7 +9,8 @@ Ext.define('tiendarepuestos.Global', {
     ruc : '',
     correo :'',
     usuario : 'eerazo',
-    idticketera:0
+    idticketera:0,
+    accesos :[]
     
 });
 
